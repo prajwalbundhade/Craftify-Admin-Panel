@@ -14,4 +14,13 @@ router.post("/new", async (req, res) => {
   }
 });
 
+// Get all posts
+router.get("/", async (req, res) => {
+  try {
+    const posts = await Post.find(); // Fetch all posts
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching posts", error: error.message });
+  }
+});
 module.exports = router;
