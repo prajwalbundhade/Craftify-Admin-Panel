@@ -11,7 +11,7 @@ import Add from "./Admin/Posts/NewPost";
 // import ViewMessage from "./Admin/Inbox/ViewMessage";
 import NotFound from "./layouts/PageNotFound";
 import { AuthToken } from "./Api/Api";
-
+import EditPost from './Admin/Posts/EditPost';
 // Higher-order component for private routes
 function PrivateRoute({ children }) {
   const token = AuthToken(); // Retrieve auth token from session
@@ -91,6 +91,7 @@ function App() {
             </PrivateRoute>
           }
         /> */}
+        <Route path="/Admin/Post/Edit/:id" element={<EditPost />} />
 
         {/* Catch-All Route */}
         <Route path="*" element={<NotFound />} />

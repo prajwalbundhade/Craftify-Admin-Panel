@@ -5,8 +5,9 @@ import { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../layouts/Loading";
+import Swal from "sweetalert2";
 
-function PostsData({ postsData, currentPage, itemsPerPage }) {
+function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleEdit }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const postsToDisplay = postsData.slice(startIndex, endIndex);
@@ -33,9 +34,13 @@ function PostsData({ postsData, currentPage, itemsPerPage }) {
                 <td className="py-2 truncate">{post.title}</td>
                 <td className="py-2">{post.category}</td>
                 <td className="py-2 flex justify-around">
-                  <FontAwesomeIcon className="text-red-500 cursor-pointer" icon={faTrash} />
-                  <Link>
-                    <FontAwesomeIcon className="text-yellow-500" icon={faPen} />
+                  <FontAwesomeIcon
+                    className="text-red-500 cursor-pointer"
+                    icon={faTrash}
+                    onClick={() => handleDelete(post._id)}
+                  />
+                  <Link to={`/Admin/Post/Edit/${post._id}`}>
+                    <FontAwesomeIcon className="text-yellow-500" icon={faPen} onClick={() => handleEdit(post)} />
                   </Link>
                 </td>
               </tr>
@@ -52,8 +57,8 @@ function Posts() {
   const itemsPerPage = 10;
   const [postsData, setPostsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [loading, setLoading] = useState(true); // UI state for loading
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulate login state
+  const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   useEffect(() => {
     fetchPosts();
@@ -70,7 +75,23 @@ function Posts() {
     }
   };
 
-  // Redirect to login page if not logged in
+  const handleDelete = async (postId) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/api/posts/${postId}`);
+      Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
+      fetchPosts();  // Refresh the list of posts after successful deletion
+    } catch (error) {
+      Swal.fire('Error!', 'There was a problem deleting the post.', 'error');
+      console.error('Error deleting post:', error);
+    }
+  };
+  
+
+  const handleEdit = (post) => {
+    // This will be passed down to the Edit page, if necessary
+    console.log("Editing Post:", post);
+  };
+
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
   }
@@ -92,7 +113,10 @@ function Posts() {
       ) : (
         <>
           <div className="flex justify-between mb-4">
-            <Link to="/Admin/Post/New" className="bg-indigo-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-600">
+            <Link
+              to="/Admin/Post/New"
+              className="bg-indigo-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-600"
+            >
               <FontAwesomeIcon icon={faPlus} /> New Post
             </Link>
             <div className="flex items-center bg-white border rounded-lg shadow-md px-4 py-2">
@@ -105,11 +129,21 @@ function Posts() {
                 className="outline-none bg-transparent"
               />
               {searchQuery && (
-                <FontAwesomeIcon icon={faTimes} onClick={() => setSearchQuery("")} className="text-gray-400 ml-2 cursor-pointer" />
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  onClick={() => setSearchQuery("")}
+                  className="text-gray-400 ml-2 cursor-pointer"
+                />
               )}
             </div>
           </div>
-          <PostsData postsData={filteredPosts} currentPage={currentPage} itemsPerPage={itemsPerPage} />
+          <PostsData
+            postsData={filteredPosts}
+            currentPage={currentPage}
+            itemsPerPage={itemsPerPage}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+          />
           <div className="flex justify-center mt-4">
             {totalPages > 1 && currentPage > 1 && (
               <button
@@ -119,7 +153,9 @@ function Posts() {
                 Previous
               </button>
             )}
-            <span>Page {currentPage} of {totalPages}</span>
+            <span>
+              Page {currentPage} of {totalPages}
+            </span>
             {totalPages > 1 && currentPage < totalPages && (
               <button
                 onClick={() => setCurrentPage(currentPage + 1)}

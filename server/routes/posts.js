@@ -23,4 +23,35 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: "Error fetching posts", error: error.message });
   }
 });
+
+// Edit a post by ID
+router.put("/:id", async (req, res) => {
+  try {
+    const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!updatedPost) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    res.status(200).json(updatedPost);
+  } catch (error) {
+    res.status(400).json({ message: "Error updating post", error: error.message });
+  }
+});
+
+// DELETE /:id
+router.delete("/:id", async (req, res) => {
+  try {
+    const postId = req.params.id;  // MongoDB ID
+    const deletedPost = await Post.findByIdAndDelete(postId);  // Using MongoDB ID (_id)
+
+    if (!deletedPost) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error(error);  // Log error to debug
+    res.status(500).json({ message: "Error deleting post", error: error.message });
+  }
+});
+
 module.exports = router;
