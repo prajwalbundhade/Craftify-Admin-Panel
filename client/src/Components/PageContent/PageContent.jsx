@@ -1,10 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DarkCard from './DarkCard';
+import axios from 'axios';
 import './PageContent.css';
 
-const PageContent = ({ cardsData }) => {
+const PageContent = () => {
+  const [cardsData, setCardsData] = useState([]); // Manage dynamic card data
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
+
+  // Fetch data from the backend
+  useEffect(() => {
+    const fetchCardsData = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:8000/api/posts'); // Replace with your backend API URL
+        setCardsData(response.data); // Set fetched data
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching card data:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchCardsData();
+  }, []); // Fetch only on mount
 
   const categories = [...new Set(cardsData.map(card => card.category))];
 
@@ -23,6 +42,10 @@ const PageContent = ({ cardsData }) => {
            (cardTitle.toLowerCase().includes(searchTerm.toLowerCase()) || 
             cardDescription.toLowerCase().includes(searchTerm.toLowerCase()));
   });
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading state
+  }
 
   return (
     <div className="container mt-5">

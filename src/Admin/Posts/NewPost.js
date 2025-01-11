@@ -105,7 +105,7 @@ function AddPost() {
     className="border rounded-lg p-2"
   >
     <option value="">Select a category</option>
-    {["Cat 1", "Cat 2", "Cat 3"].map((category, index) => (
+    {["Minecraft But Mods & Plugins", "Premium Mods & Plugins", "Trending Packages", "New Models"].map((category, index) => (
       <option key={index} value={category}>
         {category}
       </option>
@@ -127,7 +127,7 @@ function AddPost() {
             className="border rounded-lg p-2"
           >
             <option value="">Select a state</option>
-            {["state 1", "state 2", "state 3"].map((state, index) => (
+            {["Mod", "Plugin", "Datapack", "Package"].map((state, index) => (
       <option key={index} value={state}>
         {state}
       </option>
