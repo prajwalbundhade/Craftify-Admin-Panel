@@ -1,0 +1,58 @@
+name: Deploy Full Stack App
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if you use a different branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up Node.js for the backend
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Use the appropriate Node.js version (adjust as needed)
+
+      # Install dependencies and build client and admin panel
+      - name: Install dependencies
+        run: |
+          cd /var/www/Craftify-Admin-Panel
+          npm install  # Install dependencies for the backend
+          cd client && npm install  # Install dependencies for the client
+          cd admin && npm install  # Install dependencies for the admin panel
+          
+      # Build client and admin panel (React)
+      - name: Build React App
+        run: |
+          cd /var/www/Craftify-Admin-Panel/client
+          npm run build  # Build client app (for production)
+          
+          cd /var/www/Craftify-Admin-Panel/admin
+          npm run build  # Build admin panel app (for production)
+
+      # Deploy to the VPS via SSH
+      - name: Deploy to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # GitHub Secret
+        run: |
+          # Start SSH agent
+          eval "$(ssh-agent -s)"
+          # Add the SSH private key
+          echo "$SSH_PRIVATE_KEY" | ssh-add -
+          # Copy the files to the VPS server (ensure paths match your VPS structure)
+          rsync -avz --delete /var/www/Craftify-Admin-Panel/client/dist/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/client/dist/
+          rsync -avz --delete /var/www/Craftify-Admin-Panel/admin/build/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/build/
+          
+          # Restart backend (node server) or deploy backend changes
+          ssh username@46.202.166.106 << 'EOF'
+            cd /var/www/Craftify-Admin-Panel/server
+            npm install  # Install backend dependencies if required
+            pm2 restart react-admin || pm2 start index.js --name react-admin  # Restart or start Node.js server
+          EOF
