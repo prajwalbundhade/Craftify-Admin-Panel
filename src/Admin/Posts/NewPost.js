@@ -27,7 +27,7 @@ function AddPost() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    axios.post("http://127.0.0.1:8000/api/posts/new", formData, {
+    axios.post("http://46.202.166.106/api/posts/new", formData, {
         headers: {
           Authorization: 'Bearer ' + AuthToken(),
         },

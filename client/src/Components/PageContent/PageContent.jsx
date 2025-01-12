@@ -13,7 +13,7 @@ const PageContent = () => {
   useEffect(() => {
     const fetchCardsData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/posts'); // Replace with your backend API URL
+        const response = await axios.get('http://46.202.166.106/api/posts'); // Replace with your backend API URL
         setCardsData(response.data); // Set fetched data
         setLoading(false);
       } catch (error) {

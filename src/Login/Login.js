@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/login", {
+      const response = await axios.post("http://46.202.166.106/api/login", {
         email,
         password,
       }); 
@@ -29,7 +29,7 @@ function Login() {
       
       // Use the `navigate` function to perform navigation
       /* navigate('/Admin'); */
-      window.location.href = "http://localhost:3000/Admin";
+      window.location.href = "http://46.202.166.106/Admin";
 
 
       // Handle a successful login response here

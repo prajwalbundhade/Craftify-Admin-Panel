@@ -2,7 +2,7 @@ import axios from "axios";
 
 /* Backend API base URL */
 function Domain() {
-  const baseURL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000/api";
+  const baseURL = process.env.REACT_APP_API_URL || "http://46.202.166.106/api";
   return baseURL;
 }
 

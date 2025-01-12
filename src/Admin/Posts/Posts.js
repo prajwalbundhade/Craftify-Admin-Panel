@@ -66,7 +66,7 @@ function Posts() {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/api/posts");
+      const response = await axios.get("http://46.202.166.106/api/posts");
       setPostsData(response.data);
       setLoading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ function Posts() {
 
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`http://127.0.0.1:8000/api/posts/${postId}`);
+      await axios.delete(`http://46.202.166.106/api/posts/${postId}`);
       Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
       fetchPosts();  // Refresh the list of posts after successful deletion
     } catch (error) {
