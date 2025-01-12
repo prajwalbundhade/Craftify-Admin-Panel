@@ -29,7 +29,7 @@ function Login() {
       
       // Use the `navigate` function to perform navigation
       /* navigate('/Admin'); */
-      window.location.href = "http://46.202.166.106/Admin";
+      window.location.href = "http://46.202.166.106:3000/Admin";
 
 
       // Handle a successful login response here
