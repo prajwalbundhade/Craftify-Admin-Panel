@@ -3,7 +3,7 @@ name: Deploy Full Stack App
 on:
   push:
     branches:
-      - main  # Adjust this if you use a different branch
+      - main  # Adjust if you use a different branch
 
 jobs:
   deploy:
@@ -20,24 +20,33 @@ jobs:
         with:
           node-version: '16'  # Use the appropriate Node.js version (adjust as needed)
 
-      # Install dependencies and build client and admin panel
-      - name: Install dependencies
+      # Install dependencies for the backend, client, and admin panel
+      - name: Install backend and frontend dependencies
         run: |
-          cd /var/www/Craftify-Admin-Panel
-          npm install  # Install dependencies for the backend
-          cd client && npm install  # Install dependencies for the client
-          cd admin && npm install  # Install dependencies for the admin panel
+          # Install backend dependencies
+          cd /var/www/Craftify-Admin-Panel/server
+          npm install  # Install backend dependencies
           
+          # Install dependencies for the client
+          cd /var/www/Craftify-Admin-Panel/client
+          npm install  # Install client dependencies
+          
+          # Install dependencies for the admin panel
+          cd /var/www/Craftify-Admin-Panel
+          npm install  # Install admin panel dependencies
+
       # Build client and admin panel (React)
       - name: Build React App
         run: |
+          # Build the client app
           cd /var/www/Craftify-Admin-Panel/client
           npm run build  # Build client app (for production)
-          
-          cd /var/www/Craftify-Admin-Panel/admin
+
+          # Build the admin panel app
+          cd /var/www/Craftify-Admin-Panel
           npm run build  # Build admin panel app (for production)
 
-      # Deploy to the VPS via SSH
+      # Deploy to VPS via SSH
       - name: Deploy to VPS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # GitHub Secret
@@ -46,13 +55,15 @@ jobs:
           eval "$(ssh-agent -s)"
           # Add the SSH private key
           echo "$SSH_PRIVATE_KEY" | ssh-add -
-          # Copy the files to the VPS server (ensure paths match your VPS structure)
-          rsync -avz --delete /var/www/Craftify-Admin-Panel/client/dist/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/client/dist/
-          rsync -avz --delete /var/www/Craftify-Admin-Panel/admin/build/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/build/
           
-          # Restart backend (node server) or deploy backend changes
+          # Copy the built files (client and admin panel) to your VPS server
+          rsync -avz --delete /var/www/Craftify-Admin-Panel/client/build/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/client/build/
+          rsync -avz --delete /var/www/Craftify-Admin-Panel/build/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/
+
+          # Deploy the backend (using pm2 or npm to restart the server)
           ssh username@46.202.166.106 << 'EOF'
+            # Navigate to the server directory
             cd /var/www/Craftify-Admin-Panel/server
-            npm install  # Install backend dependencies if required
+            npm install  # Install or update server dependencies
             pm2 restart react-admin || pm2 start index.js --name react-admin  # Restart or start Node.js server
           EOF
