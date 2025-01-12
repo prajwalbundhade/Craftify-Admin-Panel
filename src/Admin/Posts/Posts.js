@@ -88,8 +88,10 @@ function Posts() {
   
 
   const handleEdit = (post) => {
-    // This will be passed down to the Edit page, if necessary
     console.log("Editing Post:", post);
+    return (
+      <Link to={`/Admin/Post/Edit/${post._id}`} className="edit-link">Edit</Link>
+    );
   };
 
   if (!isLoggedIn) {

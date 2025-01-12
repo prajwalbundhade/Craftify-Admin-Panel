@@ -37,6 +37,20 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// Get a single post by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id); // Find post by ID
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+    res.status(200).json(post); // Return post
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching post", error: error.message });
+  }
+});
+
+
 // DELETE /:id
 router.delete("/:id", async (req, res) => {
   try {
