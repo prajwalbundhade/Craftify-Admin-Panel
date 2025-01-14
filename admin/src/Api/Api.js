@@ -2,7 +2,7 @@ import axios from "axios";
 
 /* Backend API base URL */
 function Domain() {
-  const baseURL = process.env.REACT_APP_API_URL || "http://46.202.166.106/api";
+  const baseURL = process.env.REACT_APP_API_URL || "http://craftifyservice.online/api";
   return baseURL;
 }
 

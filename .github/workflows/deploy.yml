@@ -57,11 +57,11 @@ jobs:
           echo "$SSH_PRIVATE_KEY" | ssh-add -
           
           # Copy the built files (client and admin panel) to your VPS server
-          rsync -avz --delete /var/www/Craftify-Admin-Panel/client/build/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/client/build/
-          rsync -avz --delete /var/www/Craftify-Admin-Panel/build/ username@46.202.166.106:/var/www/Craftify-Admin-Panel/
+          rsync -avz --delete /var/www/Craftify-Admin-Panel/client/build/ username@craftifyservice.online:/var/www/Craftify-Admin-Panel/client/build/
+          rsync -avz --delete /var/www/Craftify-Admin-Panel/build/ username@craftifyservice.online:/var/www/Craftify-Admin-Panel/
 
           # Deploy the backend (using pm2 or npm to restart the server)
-          ssh username@46.202.166.106 << 'EOF'
+          ssh username@craftifyservice.online << 'EOF'
             # Navigate to the server directory
             cd /var/www/Craftify-Admin-Panel/server
             npm install  # Install or update server dependencies

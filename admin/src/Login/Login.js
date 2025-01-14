@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Use useNavigate for React Router v6
 
-import Domain from "../Api/Api";
-import AdminName from "../Api/Api";
+// import Domain from "../Api/Api";
+// import AdminName from "../Api/Api";
 
 function Login() {
   const [email, setEmail] = useState("admin@gmail.com");
@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://46.202.166.106/api/login", {
+      const response = await axios.post("Admin/Posts", {
         email,
         password,
       }); 
@@ -29,7 +29,7 @@ function Login() {
       
       // Use the `navigate` function to perform navigation
       /* navigate('/Admin'); */
-      window.location.href = "http://46.202.166.106:3000/Admin";
+      window.location.href = "http://dashboardcraftifyservice.online/Admin/Posts";
 
 
       // Handle a successful login response here
