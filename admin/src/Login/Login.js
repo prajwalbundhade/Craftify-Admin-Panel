@@ -15,7 +15,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("Admin/Posts", {
+      const response = await axios.post("http://craftifyservice.online:5000/api/login", {
         email,
         password,
       }); 
