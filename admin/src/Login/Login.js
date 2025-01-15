@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Use useNavigate for React Router v6
 
-// import Domain from "../Api/Api";
-// import AdminName from "../Api/Api";
-
 function Login() {
   const [email, setEmail] = useState("admin@gmail.com");
   const [password, setPassword] = useState("admin");
@@ -21,22 +18,15 @@ function Login() {
       }); 
       const authToken = response.data.token;
 
-      // Store the token in localStorage
-      /* localStorage.setItem('authToken', authToken); */
-      sessionStorage.setItem('authToken', authToken);
-      sessionStorage.setItem('AdminName', response.data.admin_name);
-      
-      
-      // Use the `navigate` function to perform navigation
-      /* navigate('/Admin'); */
-      window.location.href = "http://dashboardcraftifyservice.online/Admin/Posts";
+      // Store the token in sessionStorage (or localStorage if needed)
+      sessionStorage.setItem("authToken", authToken);
+      sessionStorage.setItem("AdminName", response.data.admin_name);
 
-
-      // Handle a successful login response here
+      // Redirect to Posts page
+      navigate("/Admin/Posts"); // Using react-router's navigate to perform the redirect
       console.log("Login successful:", response.data.message);
       setError(null);
 
-      // You can redirect to a new page or update the UI as needed
     } catch (error) {
       // Handle login errors
       setError("Login failed. Please check your credentials.");
