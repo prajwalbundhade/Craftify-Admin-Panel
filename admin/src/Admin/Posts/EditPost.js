@@ -25,7 +25,7 @@ const EditPost = () => {
     const fetchPostData = async () => {
       console.log("Fetching post with ID:", id);  // Check if ID is correct
       try {
-        const response = await axios.get(`http://craftifyservice.online/api/posts/${id}`);
+        const response = await axios.get(`http://craftifyservice.online:5000/api/posts/${id}`);
         setFormData(response.data);
       } catch (error) {
         console.error("Error fetching post data:", error);
@@ -45,7 +45,7 @@ const EditPost = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.put(`http://craftifyservice.online/api/posts/${id}`, formData);
+      const response = await axios.put(`http://craftifyservice.online:5000/api/posts/${id}`, formData);
       Swal.fire('Success', 'Post updated successfully', 'success');
       navigate('/Admin/Posts'); // Redirect to the list of posts after successful update
     } catch (error) {

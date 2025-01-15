@@ -30,7 +30,7 @@ const About = () => {
                   About Craftify Productions
                 </Card.Title>
                 <Card.Text className="about-text">
-                  Prajwal Bundhade Craftify Productions is your one-stop destination for premium
+                  Craftify Productions is your one-stop destination for premium
                   Minecraft mods and custom services tailored for content
                   creators and YouTubers. We offer top-quality mods at
                   unbeatable prices, alongside custom services like script
