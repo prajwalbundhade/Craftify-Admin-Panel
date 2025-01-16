@@ -27,7 +27,7 @@ function AddPost() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    axios.post("https://craftifyservice.online:5000/api/posts/new", formData, {
+    axios.post("craftifyservice.online:5000/api/posts/new", formData, {
         headers: {
           Authorization: 'Bearer ' + AuthToken(),
         },

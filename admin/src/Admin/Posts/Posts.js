@@ -66,7 +66,7 @@ function Posts() {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("https://craftifyservice.online:5000/api/posts");
+      const response = await axios.get("craftifyservice.online:5000/api/posts");
       setPostsData(response.data);
       setLoading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ function Posts() {
 
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`https://craftifyservice.online:5000/api/posts/${postId}`);
+      await axios.delete(`craftifyservice.online:5000/api/posts/${postId}`);
       Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
       fetchPosts();  // Refresh the list of posts after successful deletion
     } catch (error) {
