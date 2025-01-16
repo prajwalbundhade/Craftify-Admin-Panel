@@ -11,7 +11,6 @@ connectDB();
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-const cors = require('cors');
 
 // Allow all origins
 app.use(cors({
