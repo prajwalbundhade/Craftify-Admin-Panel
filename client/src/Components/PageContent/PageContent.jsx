@@ -13,7 +13,7 @@ const PageContent = () => {
   useEffect(() => {
     const fetchCardsData = async () => {
       try {
-        const response = await axios.get('https://craftifyservice.online/api/posts'); // Replace with your backend API URL
+        const response = await axios.get('https://craftifyproductions.com/api/posts'); // Replace with your backend API URL
         setCardsData(response.data); // Set fetched data
         setLoading(false);
       } catch (error) {

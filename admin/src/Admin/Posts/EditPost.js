@@ -25,7 +25,7 @@
 //     const fetchPostData = async () => {
 //       console.log("Fetching post with ID:", id);  // Check if ID is correct
 //       try {
-//         const response = await axios.get(`https://craftifyservice.online/api/posts/${id}`);
+//         const response = await axios.get(`https://craftifyproductions.com/api/posts/${id}`);
 //         setFormData(response.data);
 //       } catch (error) {
 //         console.error("Error fetching post data:", error);
@@ -45,7 +45,7 @@
 //     e.preventDefault();
 
 //     try {
-//       const response = await axios.put(`https://craftifyservice.online/api/posts/${id}`, formData);
+//       const response = await axios.put(`https://craftifyproductions.com/api/posts/${id}`, formData);
 //       Swal.fire('Success', 'Post updated successfully', 'success');
 //       navigate('/Admin/Posts'); // Redirect to the list of posts after successful update
 //     } catch (error) {

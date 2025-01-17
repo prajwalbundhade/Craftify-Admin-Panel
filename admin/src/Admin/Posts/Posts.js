@@ -54,7 +54,7 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete }) { //h
 
 function Posts() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 30;
   const [postsData, setPostsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -66,7 +66,7 @@ function Posts() {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("https://craftifyservice.online/api/posts");
+      const response = await axios.get("https://craftifyproductions.com/api/posts");
       setPostsData(response.data);
       setLoading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ function Posts() {
 
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`https://craftifyservice.online/api/posts/${postId}`);
+      await axios.delete(`https://craftifyproductions.com/api/posts/${postId}`);
       Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
       fetchPosts();  // Refresh the list of posts after successful deletion
     } catch (error) {

@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // Allow all origins
 // app.use(cors({
-  // origin: ['https://dashboard.craftifyservice.online', 'https://craftifyservice.online'],
+  // origin: ['https://dashboard.craftifyproductions.com', 'https://craftifyproductions.com'],
     // methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],  // Allows these specific methods
     // allowedHeaders: ['Content-Type', 'Authorization'],
   // }));
