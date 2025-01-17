@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 
 // Allow all origins
 app.use(cors({
-    origin: '*',  // Allows all origins
+  origin: ['https://dashboard.craftifyservice.online', 'https://craftifyservice.online'],
     methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],  // Allows these specific methods
-    credentials: true,  // If you need to allow credentials like cookies
+    allowedHeaders: ['Content-Type', 'Authorization'],
   }));
 
 // Routes
