@@ -4,7 +4,7 @@ const PostSchema = new mongoose.Schema(
   {
     index: {
       type: Number,
-      unique: true,
+      // unique: true,
       required: true,
     },
     title: {
