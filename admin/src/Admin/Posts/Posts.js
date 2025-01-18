@@ -7,7 +7,7 @@ import axios from "axios";
 import Loading from "../../layouts/Loading";
 import Swal from "sweetalert2";
 
-function PostsData({ postsData, currentPage, itemsPerPage, handleDelete }) { //handleEdit
+function PostsData({ postsData, currentPage, itemsPerPage, handleDelete,handleEdit}){
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const postsToDisplay = postsData.slice(startIndex, endIndex);
@@ -39,9 +39,9 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete }) { //h
                     icon={faTrash}
                     onClick={() => handleDelete(post._id)}
                   />
-                  {/* <Link to={`/Admin/Post/Edit/${post._id}`}>
+                  <Link to={`/Admin/Post/Edit/${post._id}`}>
                     <FontAwesomeIcon className="text-yellow-500" icon={faPen} onClick={() => handleEdit(post)} />
-                  </Link> */}
+                  </Link>
                 </td>
               </tr>
             ))}
@@ -87,12 +87,12 @@ function Posts() {
   };
   
 
-  // const handleEdit = (post) => {
-  //   console.log("Editing Post:", post);
-  //   return (
-  //     <Link to={`/Admin/Post/Edit/${post._id}`} className="edit-link">Edit</Link>
-  //   );
-  // };
+  const handleEdit = (post) => {
+    console.log("Editing Post:", post);
+    return (
+      <Link to={`/Admin/Post/Edit/${post._id}`} className="edit-link">Edit</Link>
+    );
+  };
 
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
@@ -144,7 +144,7 @@ function Posts() {
             currentPage={currentPage}
             itemsPerPage={itemsPerPage}
             handleDelete={handleDelete}
-            // handleEdit={handleEdit}
+          handleEdit={handleEdit}
           />
           <div className="flex justify-center mt-4">
             {totalPages > 1 && currentPage > 1 && (
