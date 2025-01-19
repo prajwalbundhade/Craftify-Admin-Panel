@@ -101,7 +101,42 @@ function Posts() {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
+  const shuffleCards = async () => {
+    const swal = Swal.fire({
+      title: 'Shuffling Cards...',
+      text: 'Please wait while the cards are being shuffled.',
+      icon: 'info',
+      showConfirmButton: false,
+      didOpen: () => {
+        Swal.showLoading(); // Show the loading spinner
+      }
+    });
+  
+    try {
+      const response = await axios.post('https://craftifyproductions.com/api/cards/shuffle'); // Use correct endpoint
+      swal.close();  // Close the loading spinner
+  
+      // Show success message
+      Swal.fire({
+        title: 'Success!',
+        text: response.data.message,
+        icon: 'success',
+        confirmButtonText: 'OK'
+      });
+    } catch (error) {
+      swal.close();  // Close the loading spinner
+  
+      // Show failure message
+      Swal.fire({
+        title: 'Failed!',
+        text: 'Failed to shuffle cards.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+      console.error('Error shuffling cards:', error);
+    }
+  };
+  
   const filteredPosts = postsData.filter((post) =>
     post.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -121,6 +156,7 @@ function Posts() {
             >
               <FontAwesomeIcon icon={faPlus} /> New Post
             </Link>
+            <button  className="bg-indigo-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-600" onClick={shuffleCards}>Shuffle Cards</button>
             <div className="flex items-center bg-white border rounded-lg shadow-md px-4 py-2">
               <FontAwesomeIcon icon={faSearch} className="text-indigo-500 mr-2" />
               <input

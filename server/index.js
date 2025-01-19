@@ -1,16 +1,17 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const dotenv = require("dotenv");
-// const cors = require("cors");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/posts");
 // const Post = require("./models/Post");
+const shuffleRoute = require('./routes/shuffle');
 dotenv.config();
 connectDB();
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
 
 // Allow all origins
@@ -23,22 +24,7 @@ app.use(bodyParser.json());
 
   // Bulk insert route
 // app.post("/bulk-insert", async (req, res) => {
-//   const data = [
-    
-//     {
-//       "index": 4643,
-//       "title": "Minecraft but Everything I Touch Turns to Emerald",
-//       "category": "Premium Mods & Plugins",
-//       "state": "plugin",
-//       "imagePath": "https://img.youtube.com/vi/JqjqTPYCqQY/maxresdefault.jpg",
-//       "description": "Version - 1.20",
-//       "buyNow": "",
-//       "ytLink": "https://www.youtube.com/watch?v=JqjqTPYCqQY",
-//       "price": "99$",
-//       "bookNow": "ok"
-//     }
-    
-//   ];
+//   const data = [];
 
 //   try {
 //     const result = await Post.insertMany(data, { ordered: false });
@@ -56,5 +42,8 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api", authRoutes);
 app.use("/api/posts", postRoutes);
+// Change this to use '/api/cards' for shuffle
+app.use('/api/cards', shuffleRoute);
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

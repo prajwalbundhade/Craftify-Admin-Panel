@@ -9,21 +9,21 @@ const PageContent = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Fetch data from the backend
   useEffect(() => {
     const fetchCardsData = async () => {
       try {
-        const response = await axios.get('https://craftifyproductions.com/api/posts'); // Replace with your backend API URL
-        setCardsData(response.data); // Set fetched data
+        const response = await axios.get('https://craftifyproductions.com/api/cards/shuffle'); // Original endpoint
+        setCardsData(response.data); // Set card data
         setLoading(false);
       } catch (error) {
         console.error('Error fetching card data:', error);
         setLoading(false);
       }
     };
-
+  
     fetchCardsData();
   }, []); // Fetch only on mount
+  
 
   const categories = [...new Set(cardsData.map(card => card.category))];
 
