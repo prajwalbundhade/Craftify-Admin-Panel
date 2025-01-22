@@ -6,8 +6,10 @@ import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../layouts/Loading";
 import Swal from "sweetalert2";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import DraggablePost from './DraggablePost'; // Import the new memoized component
 
-function PostsData({ postsData, currentPage, itemsPerPage, handleDelete,handleEdit}){
+function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleEdit, onDragEnd }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const postsToDisplay = postsData.slice(startIndex, endIndex);
@@ -16,41 +18,39 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete,handleEd
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Posts</h1>
       <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <table className="min-w-full bg-white">
-          <thead className="bg-gray-800 text-white">
-            <tr>
-              <th className="w-1/5 py-2">Picture</th>
-              <th className="w-1/5 py-2">Title</th>
-              <th className="w-1/5 py-2">Category</th>
-              <th className="w-1/5 py-2">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {postsToDisplay.map((post) => (
-              <tr key={post.title} className="text-center border-b">
-                <td className="py-2">
-                  <img className="w-20 mx-auto" src={post.imagePath} alt={post.title} />
-                </td>
-                <td className="py-2 truncate">{post.title}</td>
-                <td className="py-2">{post.category}</td>
-                <td className="py-2 flex justify-around">
-                  <FontAwesomeIcon
-                    className="text-red-500 cursor-pointer"
-                    icon={faTrash}
-                    onClick={() => handleDelete(post._id)}
-                  />
-                  <Link to={`/Admin/Post/Edit/${post._id}`}>
-                    <FontAwesomeIcon className="text-yellow-500" icon={faPen} onClick={() => handleEdit(post)} />
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <DragDropContext onDragEnd={onDragEnd}>  {/* Pass onDragEnd here */}
+          <Droppable droppableId="posts" direction="vertical">
+            {(provided) => (
+              <table className="min-w-full bg-white" ref={provided.innerRef} {...provided.droppableProps}>
+                <thead className="bg-gray-800 text-white">
+                  <tr>
+                    <th className="w-1/5 py-2">Picture</th>
+                    <th className="w-1/5 py-2">Title</th>
+                    <th className="w-1/5 py-2">Category</th>
+                    <th className="w-1/5 py-2">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {postsToDisplay.map((post, index) => (
+                    <DraggablePost
+                      key={post._id}          // Ensure each post has a unique key
+                      post={post}             // Pass the post as a prop
+                      index={index}           // Pass index as a prop
+                      handleDelete={handleDelete}
+                      handleEdit={handleEdit}
+                    />
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </Droppable>
+        </DragDropContext>
       </div>
     </div>
   );
 }
+
+
 
 function Posts() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,10 +63,10 @@ function Posts() {
   useEffect(() => {
     fetchPosts();
   }, []);
-
+  
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("https://craftifyproductions.com/api/posts");
+      const response = await axios.get("http://localhost:5000/api/posts"); //all post
       setPostsData(response.data);
       setLoading(false);
     } catch (error) {
@@ -77,7 +77,7 @@ function Posts() {
 
   const handleDelete = async (postId) => {
     try {
-      await axios.delete(`https://craftifyproductions.com/api/posts/${postId}`);
+      await axios.delete(`http://localhost:5000/api/posts/${postId}`);
       Swal.fire('Deleted!', 'Your post has been deleted.', 'success');
       fetchPosts();  // Refresh the list of posts after successful deletion
     } catch (error) {
@@ -101,47 +101,37 @@ function Posts() {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-  const shuffleCards = async () => {
-    const swal = Swal.fire({
-      title: 'Shuffling Cards...',
-      text: 'Please wait while the cards are being shuffled.',
-      icon: 'info',
-      showConfirmButton: false,
-      didOpen: () => {
-        Swal.showLoading(); // Show the loading spinner
-      }
-    });
-  
-    try {
-      const response = await axios.post('https://craftifyproductions.com/api/cards/shuffle'); // Use correct endpoint
-      swal.close();  // Close the loading spinner
-  
-      // Show success message
-      Swal.fire({
-        title: 'Success!',
-        text: response.data.message,
-        icon: 'success',
-        confirmButtonText: 'OK'
-      });
-    } catch (error) {
-      swal.close();  // Close the loading spinner
-  
-      // Show failure message
-      Swal.fire({
-        title: 'Failed!',
-        text: 'Failed to shuffle cards.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
-      console.error('Error shuffling cards:', error);
-    }
-  };
   
   const filteredPosts = postsData.filter((post) =>
     post.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+ // Define onDragEnd function
+ const onDragEnd = async (result) => {
+  const { destination, source } = result;
+  if (!destination) return;  // If there's no destination, do nothing.
+
+  // Create a new array to avoid direct mutation
+  const reorderedPosts = Array.from(postsData); // Avoid direct mutation
+
+  const [movedPost] = reorderedPosts.splice(source.index, 1);  // Remove the dragged post
+  reorderedPosts.splice(destination.index, 0, movedPost);  // Insert it at the new position
+
+  // Update the order in the database via API
+  try {
+    await axios.post("http://localhost:5000/api/order/update", {
+      draggedPostId: movedPost._id,
+      targetPostId: reorderedPosts[destination.index]._id,
+      newPosition: destination.index,
+    });
+
+    // Update local state with the new order
+    setPostsData(reorderedPosts);  // Properly update state
+  } catch (err) {
+    console.error("Error updating order:", err);
+  }
+};
 
   const PostsContent = (
     <div className="p-4">
@@ -156,7 +146,6 @@ function Posts() {
             >
               <FontAwesomeIcon icon={faPlus} /> New Post
             </Link>
-            <button  className="bg-indigo-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-indigo-600" onClick={shuffleCards}>Shuffle Cards</button>
             <div className="flex items-center bg-white border rounded-lg shadow-md px-4 py-2">
               <FontAwesomeIcon icon={faSearch} className="text-indigo-500 mr-2" />
               <input
@@ -181,6 +170,7 @@ function Posts() {
             itemsPerPage={itemsPerPage}
             handleDelete={handleDelete}
           handleEdit={handleEdit}
+          onDragEnd={onDragEnd}
           />
           <div className="flex justify-center mt-4">
             {totalPages > 1 && currentPage > 1 && (
