@@ -24,6 +24,7 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleE
               <table className="min-w-full bg-white" ref={provided.innerRef} {...provided.droppableProps}>
                 <thead className="bg-gray-800 text-white">
                   <tr>
+                    <th className="w-1/5 py-2">Order</th>
                     <th className="w-1/5 py-2">Picture</th>
                     <th className="w-1/5 py-2">Title</th>
                     <th className="w-1/5 py-2">Category</th>

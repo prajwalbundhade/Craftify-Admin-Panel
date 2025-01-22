@@ -14,6 +14,7 @@ const DraggablePost = React.memo(({ post, index, handleDelete, handleEdit }) => 
           {...provided.dragHandleProps}
           className="text-center border-b"
         >
+        <td className="py-2 text-center">{post.order}</td>
           <td className="py-2">
             <img className="w-20 mx-auto" src={post.imagePath} alt={post.title} />
           </td>
