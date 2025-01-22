@@ -54,7 +54,7 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleE
 
 function Posts() {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 30;
+  const itemsPerPage = 300;
   const [postsData, setPostsData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
