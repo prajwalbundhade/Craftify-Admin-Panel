@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./PopupComponent.css";
-import sale_poster from '../../images/cristmasproductions.jpg';
+import sale_poster from '../../images/cacas.jpg';
 const PopupComponent = () => {
   const [isOpen, setIsOpen] = useState(true);
 
