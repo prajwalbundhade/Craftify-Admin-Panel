@@ -20,7 +20,6 @@ const Packages = () => {
   const handleClose = () => {
     setShowPopup(null);
   };
-
   return (
     <div className="container packages-container">
       <div className="row justify-content-center">
