@@ -25,10 +25,10 @@ const Packages = () => {
       <div className="row justify-content-center">
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(1)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/oneblock-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Oneblock Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/oneblock-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Oneblock Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Oneblock Mods</h5>
@@ -37,10 +37,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(2)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/tycoon-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Tycoon Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/tycoon-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Tycoon Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Tycoon Mods</h5>
@@ -49,10 +49,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(3)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/roleplay-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Roleplay Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/roleplay-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Roleplay Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Roleplay Mods</h5>
@@ -61,10 +61,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(4)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/Monstermod-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Roleplay Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/Monstermod-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Roleplay Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Monster & Scary Mods</h5>
@@ -73,10 +73,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(5)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/turnsto-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Roleplay Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/turnsto-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Roleplay Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Turns-To Mods</h5>
@@ -85,10 +85,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(6)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/world-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Roleplay Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/world-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Roleplay Mods"
             />
             <div className="card-body">
               <h5 className="package-title">World Mods</h5>
@@ -97,10 +97,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(7)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/crazymod-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Roleplay Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/crazymod-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Roleplay Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Crazy Mods</h5>
@@ -109,10 +109,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(8)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/solo-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Solo Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/solo-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Solo Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Solo Mods</h5>
@@ -121,10 +121,10 @@ const Packages = () => {
         </div>
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(9)}>
-            <img 
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/basemod-scaled.jpg" 
-              className="card-img-top package-img" 
-              alt="Base Mods" 
+            <img
+              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/basemod-scaled.jpg"
+              className="card-img-top package-img"
+              alt="Base Mods"
             />
             <div className="card-body">
               <h5 className="package-title">Base Mods</h5>
