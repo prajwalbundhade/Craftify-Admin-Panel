@@ -16,7 +16,6 @@ const Packages = () => {
   const handleCardClick = (popupNumber) => {
     setShowPopup(popupNumber);
   };
-
   const handleClose = () => {
     setShowPopup(null);
   };
