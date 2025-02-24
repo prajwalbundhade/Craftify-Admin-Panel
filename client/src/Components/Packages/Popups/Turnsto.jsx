@@ -63,7 +63,7 @@ const Turnsto = ({ onClose }) => {
           <li>Let Me Know If You Want to Add or Remove Any Mods</li>
           <li>You Can Test Some Mods If You Want</li>
         </ul>
-        <Button className="close-btn" onClick={onClose} variant="secondary">Close</Button>
+        <Button className="packages-close-btn" onClick={onClose} variant="secondary">Close</Button>
       </Modal.Body>
     </Modal>
   );

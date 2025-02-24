@@ -8,8 +8,13 @@ import Turnsto from './Popups/Turnsto';
 import World from './Popups/World'
 import Crazy from './Popups/Crazy';
 import Solo from './Popups/Solo';
-import Base from './Popups/Base'
-
+import Base from './Popups/Base';
+import Evolution from './Popups/Evolution';
+import solo_package_banner from './Images/solo_package_banner.jpg';
+import scary_package_banner from './Images/scary_package_banner.jpg';
+import tycoons_package_banner from './Images/tycoons_package_banner.jpg';
+import oneblock_package_banner from './Images/oneblock_package_banner.jpg';
+import evolution_package_banner from './Images/evolution_package_banner.jpg';
 const Packages = () => {
   const [showPopup, setShowPopup] = useState(null);
 
@@ -25,7 +30,7 @@ const Packages = () => {
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(1)}>
             <img
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/oneblock-scaled.jpg"
+              src={oneblock_package_banner}
               className="card-img-top package-img"
               alt="Oneblock Mods"
             />
@@ -37,7 +42,7 @@ const Packages = () => {
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(2)}>
             <img
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/tycoon-scaled.jpg"
+              src={tycoons_package_banner}
               className="card-img-top package-img"
               alt="Tycoon Mods"
             />
@@ -61,7 +66,7 @@ const Packages = () => {
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(4)}>
             <img
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/Monstermod-scaled.jpg"
+              src={scary_package_banner}
               className="card-img-top package-img"
               alt="Roleplay Mods"
             />
@@ -109,7 +114,7 @@ const Packages = () => {
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(8)}>
             <img
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/solo-scaled.jpg"
+              src={solo_package_banner}
               className="card-img-top package-img"
               alt="Solo Mods"
             />
@@ -130,6 +135,18 @@ const Packages = () => {
             </div>
           </div>
         </div>
+        <div className="col-lg-4 col-md-6 col-sm-12">
+          <div className="card package-card" onClick={() => handleCardClick(10)}>
+            <img
+              src={evolution_package_banner}
+              className="card-img-top package-img"
+              alt="Evolution Mods"
+            />
+            <div className="card-body">
+              <h5 className="package-title">Evolution Mods</h5>
+            </div>
+          </div>
+        </div>
       </div>
 
       {showPopup === 1 && <Oneblock onClose={handleClose} />}
@@ -141,6 +158,7 @@ const Packages = () => {
       {showPopup === 7 && <Crazy onClose={handleClose} />}
       {showPopup === 8 && <Solo onClose={handleClose} />}
       {showPopup === 9 && <Base onClose={handleClose} />}
+      {showPopup === 10 && <Evolution onClose={handleClose} />}
     </div>
   );
 };

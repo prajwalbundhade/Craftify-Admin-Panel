@@ -125,7 +125,7 @@ const Roleplay = ({ onClose }) => {
           <li>Let Me Know If you Want to add or remove any mods</li>
           <li>You can Test Some Mods If You Want</li>
         </ul>
-        <Button className="close-btn" onClick={onClose} variant="secondary">Close</Button>
+        <Button className="packages-close-btn" onClick={onClose} variant="secondary">Close</Button>
       </Modal.Body>
     </Modal>
   );

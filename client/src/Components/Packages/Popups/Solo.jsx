@@ -5,66 +5,103 @@ import { Link } from "react-router-dom";
 
 const Solo = ({ onClose }) => {
   const mods = [
+
     {
-      link: "https://www.youtube.com/watch?v=Ob_WPfjPlR8&start=918",
-      img: "https://i.ytimg.com/vi/Ob_WPfjPlR8/mqdefault.jpg",
-      title: "Testing Minecraft Mobs IQ To See How Smart They Are",
+      link: "https://www.youtube.com/watch?v=sNMy3mU-LbA",
+      img: "https://img.youtube.com/vi/sNMy3mU-LbA/maxresdefault.jpg",
+      title: "Running a million blocks",
     },
     {
-      link: "https://www.youtube.com/watch?v=6aM15GH5zjM",
-      img: "https://img.youtube.com/vi/6aM15GH5zjM/maxresdefault.jpg",
-      title: "Minecraft But In a Cursed World",
+      link: "https://www.youtube.com/watch?v=NZt7smBjVU0",
+      img: "https://img.youtube.com/vi/NZt7smBjVU0/maxresdefault.jpg",
+      title: "100 Mystery buttons",
     },
     {
-      link: "https://youtu.be/uD_gD7_7tiA?si=S9v1Vpqop_4m-_xv",
-      img: "https://i.ytimg.com/vi/uD_gD7_7tiA/mqdefault.jpg",
-      title: "Minecraft But You Can Choose Everything",
+      link: "https://www.youtube.com/watch?v=49H6dAi-2Jo",
+      img: "https://img.youtube.com/vi/49H6dAi-2Jo/maxresdefault.jpg",
+      title: "Turning into snake",
     },
     {
-      link: "https://youtu.be/HS5nnF6cp5k?si=0TGGYS94FesZAO-b",
-      img: "https://img.youtube.com/vi/HS5nnF6cp5k/maxresdefault.jpg",
-      title: "Minecraft But There are Elemental Swords Mod",
+      link: "https://www.youtube.com/watch?v=UbbejP_iHkU",
+      img: "https://img.youtube.com/vi/UbbejP_iHkU/maxresdefault.jpg",
+      title: "Million Legos",
     },
     {
-      link: "https://www.youtube.com/watch?v=tU5Y5ML0hT8",
-      img: "https://i.ytimg.com/vi/tU5Y5ML0hT8/mqdefault.jpg",
-      title: "Minecraft But If Every Mob Was A Chest",
+      link: "https://www.youtube.com/watch?v=YyYYoEin2CM",
+      img: "https://img.youtube.com/vi/YyYYoEin2CM/maxresdefault.jpg",
+      title: "Minecraft But Getting Younger",
     },
     {
-      link: "https://www.youtube.com/watch?v=vS3ssl4d0KY",
-      img: "https://i.ytimg.com/vi/vS3ssl4d0KY/mqdefault.jpg",
-      title: "Paintings Are Portals",
+      link: "https://www.youtube.com/watch?v=XH3278Ywzrk",
+      img: "https://img.youtube.com/vi/XH3278Ywzrk/maxresdefault.jpg",
+      title: "Minecraft but MOBS HAVE SECRET ROOMS",
     },
     {
-      link: "https://youtu.be/tHImxKExYDk?si=pS83QGoKXEEQ0-2U",
-      img: "https://i.ytimg.com/vi/tHImxKExYDk/mqdefault.jpg",
-      title: "Minecraft But My Heart = World Size",
+      link: "https://www.youtube.com/watch?v=jCwoXmm7Tnk",
+      img: "https://img.youtube.com/vi/jCwoXmm7Tnk/maxresdefault.jpg",
+      title: "Can't Touch Colors",
     },
     {
-      link: "https://youtu.be/bpIIAFEuYkI?feature=shared",
-      img: "https://img.youtube.com/vi/bpIIAFEuYkI/maxresdefault.jpg",
-      title: "Minecraft, But You Can Access All The New Mobs!",
+      link: "https://www.youtube.com/watch?v=wg7aV5YYA4Y",
+      img: "https://img.youtube.com/vi/wg7aV5YYA4Y/maxresdefault.jpg",
+      title: "Minecraft But Million Hearts",
     },
     {
-      link: "https://youtu.be/UdCHFGeJU1g?feature=shared",
+      link: "https://www.youtube.com/watch?v=5BKj2-RGMN4",
+      img: "https://img.youtube.com/vi/5BKj2-RGMN4/maxresdefault.jpg",
+      title: "Minecraft But I can Upgrade Any Mobs",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=3dOOdeHPqKU",
+      img: "https://img.youtube.com/vi/3dOOdeHPqKU/maxresdefault.jpg",
+      title: "Minecraft but I Evolve into Chicken",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=0TdJclOpuN8",
+      img: "https://img.youtube.com/vi/0TdJclOpuN8/maxresdefault.jpg",
+      title: "Minecraft But There's Sprunki Hearts",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=QGkPtyDzI7E",
+      img: "https://img.youtube.com/vi/9hkIFO0GrVk/maxresdefault.jpg",
+      title: "Minecraft But Drops Are Upgraded",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=S_sERG-aylc",
+      img: "https://img.youtube.com/vi/S_sERG-aylc/maxresdefault.jpg",
+      title: "The Bloop vs Security House in Minecraft",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=j5JRJHNhWqg",
+      img: "https://img.youtube.com/vi/j5JRJHNhWqg/maxresdefault.jpg",
+      title: "Minecraft, But I Become God",
+    },
+    {
+      link: "https://youtu.be/QWoEcIrbUWs?si=pgV-_YStKJ9joNBs",
+      img: "https://img.youtube.com/vi/QWoEcIrbUWs/maxresdefault.jpg",
+      title: "Minecraft But I can turn into monster",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=UdCHFGeJU1g",
       img: "https://img.youtube.com/vi/UdCHFGeJU1g/maxresdefault.jpg",
-      title: "Minecraft But I Buy It For 1 Million Dollars",
+      title: "Minecraft but I Can Buy Million $ Sword",
     },
     {
-      link: "https://youtu.be/5o_9k5V60gE?feature=shared",
-      img: "https://img.youtube.com/vi/5o_9k5V60gE/maxresdefault.jpg",
-      title: "Minecraft But I Control a Super Powerful Robot",
+      link: "https://youtu.be/gZcYePmCTWk?si=MFfeZAHC22vjeIuv",
+      img: "https://img.youtube.com/vi/gZcYePmCTWk/maxresdefault.jpg",
+      title: "Minecraft But There Is One Hacker block",
     },
     {
-      link: "https://youtu.be/NZvz8YOtq7o?feature=shared",
-      img: "https://img.youtube.com/vi/NZvz8YOtq7o/maxresdefault.jpg",
-      title: "Minecraft But I'M TOO LARGE",
+      link: "https://www.youtube.com/watch?v=T9BVeQm-5tk",
+      img: "https://img.youtube.com/vi/T9BVeQm-5tk/maxresdefault.jpg",
+      title: "Minecraft but I survived 1000000 days",
     },
     {
-      link: "https://youtu.be/bVsCXvJ6mQY?feature=shared",
-      img: "https://img.youtube.com/vi/bVsCXvJ6mQY/maxresdefault.jpg",
-      title: "Minecraft But I HAVE 1 PIXEL HEART!",
+      link: "https://youtu.be/qL0gOGvdD3M?si=yLIH03dkaADCGNWs",
+      img: "https://img.youtube.com/vi/qL0gOGvdD3M/maxresdefault.jpg",
+      title: "Minecraft But XP = Luck",
     },
+
   ];
 
   return (
@@ -105,7 +142,7 @@ const Solo = ({ onClose }) => {
           <li>Let Me Know If You Want to Add or Remove Any Mods</li>
           <li>You Can Test Some Mods If You Want</li>
         </ul>
-        <Button className="close-btn" onClick={onClose} variant="secondary">Close</Button>
+        <Button className="packages-close-btn" onClick={onClose} variant="secondary">Close</Button>
       </Modal.Body>
     </Modal>
   );

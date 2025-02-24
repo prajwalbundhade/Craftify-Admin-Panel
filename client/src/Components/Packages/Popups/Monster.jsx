@@ -5,15 +5,11 @@ import { Link } from "react-router-dom";
 
 const Monster = ({ onClose }) => {
   const mods = [
+
     {
       link: "https://youtu.be/QWoEcIrbUWs?si=pgV-_YStKJ9joNBs",
       img: "https://img.youtube.com/vi/QWoEcIrbUWs/maxresdefault.jpg",
-      title: "Minecraft But I Can Turn Into Monster",
-    },
-    {
-      link: "https://www.youtube.com/watch?v=49H6dAi-2Jo",
-      img: "https://img.youtube.com/vi/49H6dAi-2Jo/maxresdefault.jpg",
-      title: "Turning Into Snake",
+      title: "Minecraft But I can turn into monster",
     },
     {
       link: "https://youtu.be/9K6xkDjpqVE?feature=shared",
@@ -21,35 +17,41 @@ const Monster = ({ onClose }) => {
       title: "Minecraft, But You Turn Into a Zombie...",
     },
     {
-      link: "https://www.youtube.com/watch?v=XH3278Ywzrk",
-      img: "https://img.youtube.com/vi/XH3278Ywzrk/maxresdefault.jpg",
-      title: "Minecraft But MOBS Have Secret Rooms",
-    },
-    {
-      link: "https://youtu.be/jm3-826jRs4?si=U829QKR2ib0RcIfG",
-      img: "https://img.youtube.com/vi/jm3-826jRs4/maxresdefault.jpg",
-      title: "Minecraft But I Can Turn Into Dragon",
-    },
-    {
-      link: "https://www.youtube.com/watch?v=doyaU64QI4M",
-      img: "https://img.youtube.com/vi/doyaU64QI4M/maxresdefault.jpg",
-      title: "Minecraft But It's Scary Block",
-    },
-    {
-      link: "https://youtu.be/2vY8l8kLpfY?feature=shared",
-      img: "https://img.youtube.com/vi/2vY8l8kLpfY/maxresdefault.jpg",
-      title: "Minecraft, But You Turn Into a WORM!",
-    },
-    {
-      link: "https://youtu.be/lv1i8fWwDVY?feature=shared",
-      img: "https://img.youtube.com/vi/lv1i8fWwDVY/maxresdefault.jpg",
-      title: "Minecraft, But I Become the Wither Storm",
-    },
-    {
-      link: "https://youtu.be/xZkzT2uSHgw?feature=shared",
+      link: "https://youtu.be/xZkzT2uSHgw?si=BgxR9riPiKLxxHfj",
       img: "https://img.youtube.com/vi/xZkzT2uSHgw/maxresdefault.jpg",
-      title: "Minecraft But You Turn Into a SPIDER!",
+      title: "Minecraft but You can Turn To Spider",
     },
+    {
+      link: "https://www.youtube.com/watch?v=FoDk6jy0Ihk",
+      img: "https://img.youtube.com/vi/FoDk6jy0Ihk/maxresdefault.jpg",
+      title: "Minecraft, But I Become a Parasite",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=V9x7hNQM_5I",
+      img: "https://img.youtube.com/vi/V9x7hNQM_5I/maxresdefault.jpg",
+      title: "Minecraft, But It Turns Scary at Night...",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=JfpEHPylEa8",
+      img: "https://img.youtube.com/vi/JfpEHPylEa8/maxresdefault.jpg",
+      title: "Minecraft, But Every Drop is Scary",
+    },
+    {
+      link: "https://youtu.be/kEwq6CZSe-4?feature=shared",
+      img: "https://img.youtube.com/vi/kEwq6CZSe-4/maxresdefault.jpg",
+      title: "Minecraft, But You Can Fuse Scary Myths",
+    },
+    {
+      link: "https://youtu.be/m9adQliR_ac?feature=shared",
+      img: "https://img.youtube.com/vi/m9adQliR_ac/maxresdefault.jpg",
+      title: "Minecraft, But I Can Hire SCARY Myths",
+    },
+    {
+      link: "https://youtu.be/QQttegPgy8g?feature=shared",
+      img: "https://img.youtube.com/vi/QQttegPgy8g/maxresdefault.jpg",
+      title: "Minecraft But Everything I Touch Turns Scary",
+    },
+    
   ];
 
   return (
@@ -90,7 +92,7 @@ const Monster = ({ onClose }) => {
           <li>Let Me Know If You Want to Add or Remove Any Mods</li>
           <li>You Can Test Some Mods If You Want</li>
         </ul>
-        <Button className="close-btn" onClick={onClose} variant="secondary">Close</Button>
+        <Button className="packages-close-btn" onClick={onClose} variant="secondary">Close</Button>
       </Modal.Body>
     </Modal>
   );
