@@ -64,7 +64,7 @@ const DarkCard = ({ data }) => {
 
           {/* New Buy Now Button */}
           {newbuynow && (
-            <Button className='newbuybutton' onClick={handleBookNow}>New Buy Now</Button>
+            <Button className='newbuybutton' onClick={handleBookNow}>Buy Now</Button>
           )}
         </Card.Body>
       </Card>
