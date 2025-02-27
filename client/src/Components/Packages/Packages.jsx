@@ -15,6 +15,7 @@ import scary_package_banner from './Images/scary_package_banner.jpg';
 import tycoons_package_banner from './Images/tycoons_package_banner.jpg';
 import oneblock_package_banner from './Images/oneblock_package_banner.jpg';
 import evolution_package_banner from './Images/evolution_package_banner.jpg';
+import world_mods_banner from '.Images/world_mods_banner.jpg';
 const Packages = () => {
   const [showPopup, setShowPopup] = useState(null);
 
@@ -90,7 +91,7 @@ const Packages = () => {
         <div className="col-lg-4 col-md-6 col-sm-12">
           <div className="card package-card" onClick={() => handleCardClick(6)}>
             <img
-              src="https://updates.craftifyproductions.com/wp-content/uploads/2024/08/world-scaled.jpg"
+              src={world_mods_banner}
               className="card-img-top package-img"
               alt="Roleplay Mods"
             />
