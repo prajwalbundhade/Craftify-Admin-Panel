@@ -5,36 +5,43 @@ import { Link } from "react-router-dom";
 
 const World = ({ onClose }) => {
   const mods = [
+
+    {
+      link: "https://www.youtube.com/watch?v=a6xe0-HOm60",
+      img: "https://img.youtube.com/vi/a6xe0-HOm60/maxresdefault.jpg",
+      title: "Why I Ate My Friend's ENTIRE World",
+    },
+    {
+      link: "https://www.youtube.com/watch?v=IbLcXos3qf4",
+      img: "https://img.youtube.com/vi/IbLcXos3qf4/maxresdefault.jpg",
+      title: "Minecraft but TNT = World's Size",
+    },
     {
       link: "https://www.youtube.com/watch?v=6aM15GH5zjM",
       img: "https://img.youtube.com/vi/6aM15GH5zjM/maxresdefault.jpg",
       title: "Minecraft But In a Cursed World",
     },
     {
-      link: "https://youtu.be/MM9TOmOndWs?si=lljBTbjjzMaQl3jf",
-      img: "https://img.youtube.com/vi/MM9TOmOndWs/maxresdefault.jpg",
-      title: "Minecraft but I HAVE A CURSED MASK",
-    },
-    {
-      link: "https://www.youtube.com/watch?v=NZt7smBjVU0",
-      img: "https://img.youtube.com/vi/NZt7smBjVU0/maxresdefault.jpg",
-      title: "100 Mystery Buttons",
-    },
-    {
-      link: "https://www.youtube.com/watch?v=8nE6pInHuqQ",
-      img: "https://img.youtube.com/vi/8nE6pInHuqQ/maxresdefault.jpg",
-      title: "Minecraft but XP WORLD",
-    },
-    {
-      link: "https://www.youtube.com/watch?v=aa83GpBbY-c",
-      img: "https://img.youtube.com/vi/aa83GpBbY-c/maxresdefault.jpg",
-      title: "Minecraft, But The World Is Lava!",
+      link: "https://youtu.be/tHImxKExYDk?si=pS83QGoKXEEQ0-2U",
+      img: "https://i.ytimg.com/vi/tHImxKExYDk/mqdefault.jpg",
+      title: "Minecraft But My Heart = World Size ( only datapack )",
     },
     {
       link: "https://www.youtube.com/watch?v=R6XwtgBH-B0",
       img: "https://i.ytimg.com/vi/R6XwtgBH-B0/mqdefault.jpg",
-      title: "Turning the World to TNT",
+      title: "Turning the world to TNT",
     },
+    {
+      link: "https://www.youtube.com/watch?v=aa83GpBbY-c",
+      img: "https://i.ytimg.com/vi/aa83GpBbY-c/mqdefault.jpg",
+      title: "The world is lava",
+    },
+    {
+      link: "https://youtu.be/vV078ZTYJKI?feature=shared",
+      img: "https://img.youtube.com/vi/vV078ZTYJKI/maxresdefault.jpg",
+      title: "Minecraft but Kills = World Size",
+    },
+   
   ];
 
   return (
