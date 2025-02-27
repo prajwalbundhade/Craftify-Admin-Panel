@@ -17,7 +17,8 @@ const EditPost = () => {
     buyNow: '',
     ytLink: '',
     price: '',
-    bookNow: ''
+    bookNow: '',
+    newbuynow: ''
   });
 
   // Fetch the post details on component mount
@@ -185,6 +186,17 @@ const EditPost = () => {
             className="border rounded-lg p-2"
           />
         </div>
+        <div className="flex flex-col">
+          <label htmlFor="newbuynow" className="text-lg">New Buy Now (Write 'ok' to enable button)</label>
+          <input
+            type="text"
+            id="newbuynow"
+            name="newbuynow"
+            value={formData.newbuynow}
+            onChange={handleChange}
+            className="border rounded-lg p-2"
+          />
+        </div>
 
         <div className="flex space-x-4">
           <button
@@ -204,7 +216,8 @@ const EditPost = () => {
               buyNow: '',
               ytLink: '',
               price: '',
-              bookNow: ''
+              bookNow: '',
+              newbuynow: ''
             })}
             className="bg-gray-500 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition duration-300"
           >
