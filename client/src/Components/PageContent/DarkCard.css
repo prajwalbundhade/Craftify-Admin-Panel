@@ -69,4 +69,18 @@
     
 }
 
+.newbuybutton{
+  border-radius: 15px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    background-color: #0EFAFF !important;
+    color: rgb(0, 0, 0) !important;
+    border: 1px solid #0EFAFF !important;
+}
+.newbuybutton:hover{
+  background-color: #00afb1 !important;
+    color: rgb(0, 0, 0) !important;
+    border: 1px solid #00afb1 !important;
+}
+
   
