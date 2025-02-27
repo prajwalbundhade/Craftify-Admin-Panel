@@ -3,7 +3,7 @@ import { Card, Button, Badge, Modal, Table } from 'react-bootstrap';
 import './DarkCard.css';
 
 const DarkCard = ({ data }) => {
-  const { ytLink, title, category, state, imagePath, description, buyNow, price, bookNow, newBuyNow } = data;
+  const { ytLink, title, category, state, imagePath, description, buyNow, price, bookNow, newbuynow } = data;
 
   const [showBookModal, setShowBookModal] = useState(false);
   const [showNewBuyNowModal, setShowNewBuyNowModal] = useState(false);
@@ -63,7 +63,7 @@ const DarkCard = ({ data }) => {
           )}
 
           {/* New Buy Now Button */}
-          {newBuyNow && (
+          {newbuynow && (
             <Button className='newbuybutton' onClick={handleBookNow}>New Buy Now</Button>
           )}
         </Card.Body>
