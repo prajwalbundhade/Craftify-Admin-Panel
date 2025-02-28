@@ -80,12 +80,12 @@ const DarkCard = ({ data }) => {
             <tbody>
               <tr>
                 <td>1)</td>
-                <td>Select the mod which you are interested in buying.</td>
+                <td>This mod needs customization according to your skin.</td>
               </tr>
               <tr>
                 <td>2)</td>
                 <td>
-                  If its available for book now, you have to contact me here:
+                This mod is completed, you have to contact me here:
                   <ul>
                     <li>Email - <a href="mailto:contact@craftifyproductions.com">contact@craftifyproductions.com</a></li>
                     <li>Email - <a href="mailto:techthunderz443@gmail.com">techthunderz443@gmail.com</a></li>
@@ -95,12 +95,12 @@ const DarkCard = ({ data }) => {
               </tr>
               <tr>
                 <td>3)</td>
-                <td>Here you have to message me regarding this mod that you are interested in buying.</td>
+                <td>Here you have to send me your skin and the players who will be playing the mod.</td>
               </tr>
               <tr>
                 <td>4)</td>
                 <td>
-                  I will send an invoice, and once you pay, you will receive the mod in 24-48 Hours.
+                I will send an invoice, and once you pay, you will receive the mod in 24-48 Hours.
                 </td>
               </tr>
             </tbody>
