@@ -85,7 +85,7 @@ const DarkCard = ({ data }) => {
               <tr>
                 <td>2)</td>
                 <td>
-                This mod is completed, you have to contact me here:
+                  This mod is completed, you have to contact me here:
                   <ul>
                     <li>Email - <a href="mailto:contact@craftifyproductions.com">contact@craftifyproductions.com</a></li>
                     <li>Email - <a href="mailto:techthunderz443@gmail.com">techthunderz443@gmail.com</a></li>
@@ -100,7 +100,7 @@ const DarkCard = ({ data }) => {
               <tr>
                 <td>4)</td>
                 <td>
-                I will send an invoice, and once you pay, you will receive the mod in 24-48 Hours.
+                  I will send an invoice, and once you pay, you will receive the mod in 24-48 Hours.
                 </td>
               </tr>
             </tbody>
