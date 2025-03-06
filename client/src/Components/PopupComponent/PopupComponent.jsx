@@ -26,7 +26,7 @@ const PopupComponent = () => {
               src={sale_poster}
               alt="Sale Poster"
               className="popup-image"
-            
+
             />
             {/* <button
               className="gradient-button"
