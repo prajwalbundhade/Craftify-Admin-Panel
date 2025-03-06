@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
-import { Card, Button, Badge, Modal, Table } from 'react-bootstrap';
-import './DarkCard.css';
+import React, { useState } from "react";
+import { Card, Button, Badge, Modal, Table } from "react-bootstrap";
+import "./DarkCard.css";
 
 const DarkCard = ({ data }) => {
-  const { ytLink, title, category, state, imagePath, description, buyNow, price, bookNow, newbuynow } = data;
+  const {
+    ytLink,
+    title,
+    category,
+    state,
+    imagePath,
+    description,
+    buyNow,
+    price,
+    bookNow,
+    newbuynow,
+  } = data;
 
   const [showBookModal, setShowBookModal] = useState(false);
   const [showNewBuyNowModal, setShowNewBuyNowModal] = useState(false);
@@ -23,13 +34,13 @@ const DarkCard = ({ data }) => {
 
   const getStateBadge = (state) => {
     switch (state) {
-      case 'Mod':
+      case "Mod":
         return <Badge bg="success">Mod</Badge>;
-      case 'Plugin':
+      case "Plugin":
         return <Badge bg="warning">Plugin</Badge>;
-      case 'Datapack':
+      case "Datapack":
         return <Badge bg="info">Datapack</Badge>;
-      case 'Package':
+      case "Package":
         return <Badge bg="success">Package</Badge>;
       default:
         return null;
@@ -40,31 +51,42 @@ const DarkCard = ({ data }) => {
     <>
       <Card className="bg-dark text-white mb-3 cardStyle">
         <a href={ytLink} target="_blank" rel="noopener noreferrer">
-          <Card.Img className='CardImg' variant="top" src={imagePath} alt={`${title} image`} />
+          <Card.Img
+            className="CardImg"
+            variant="top"
+            src={imagePath}
+            alt={`${title} image`}
+          />
           {/* Positioning the badge on top-left */}
-          <div className="badge-container">
-            {getStateBadge(state)}
-          </div>
+          <div className="badge-container">{getStateBadge(state)}</div>
         </a>
         <Card.Body>
-          <Card.Title className="card-title">
-            {title}
-          </Card.Title>
-          <Card.Text className='desc'>{description}</Card.Text>
+          <Card.Title className="card-title">{title}</Card.Title>
+          <Card.Text className="desc">{description}</Card.Text>
           {price && <span className="tag">Price: {price} </span>}
           {buyNow && (
             <a href={buyNow} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" className='buybutton'>Buy Now</Button>
+              <Button variant="primary" className="buybutton">
+                Buy Now
+              </Button>
             </a>
           )}
 
           {bookNow && (
-            <Button variant="warning" className='bookbutton' onClick={handleNewBuyNow}>Book Now</Button>
+            <Button
+              variant="warning"
+              className="bookbutton"
+              onClick={handleNewBuyNow}
+            >
+              Book Now
+            </Button>
           )}
 
           {/* New Buy Now Button */}
           {newbuynow && (
-            <Button className='newbuybutton' onClick={handleBookNow}>Buy Now</Button>
+            <Button className="newbuybutton" onClick={handleBookNow}>
+              Buy Now
+            </Button>
           )}
         </Card.Body>
       </Card>
@@ -87,20 +109,34 @@ const DarkCard = ({ data }) => {
                 <td>
                   This mod is completed, you have to contact me here:
                   <ul>
-                    <li>Email - <a href="mailto:contact@craftifyproductions.com">contact@craftifyproductions.com</a></li>
-                    <li>Email - <a href="mailto:techthunderz443@gmail.com">techthunderz443@gmail.com</a></li>
+                    <li>
+                      Email -{" "}
+                      <a href="mailto:contact@craftifyproductions.com">
+                        contact@craftifyproductions.com
+                      </a>
+                    </li>
+                    <li>
+                      Email -{" "}
+                      <a href="mailto:techthunderz443@gmail.com">
+                        techthunderz443@gmail.com
+                      </a>
+                    </li>
                     <li>Discord - thunderzlucky</li>
                   </ul>
                 </td>
               </tr>
               <tr>
                 <td>3)</td>
-                <td>Here you have to send me your skin and the players who will be playing the mod.</td>
+                <td>
+                  Here you have to send me your skin and the players who will be
+                  playing the mod.
+                </td>
               </tr>
               <tr>
                 <td>4)</td>
                 <td>
-                  I will send an invoice, and once you pay, you will receive the mod in 24-48 Hours.
+                  I will send an invoice, and once you pay, you will receive the
+                  mod in 24-48 Hours.
                 </td>
               </tr>
             </tbody>
@@ -119,14 +155,30 @@ const DarkCard = ({ data }) => {
           <Modal.Title>How to Book Mod</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>These mods are <strong>under development</strong> and can be <strong>booked in advance</strong> for your region.</p>
+          <p>
+            These mods are <strong>under development</strong> and can be{" "}
+            <strong>booked in advance</strong> for your region.
+          </p>
           <p>📩 To book, contact me:</p>
           <ul>
-            <li>Email – <a href="mailto:contact@craftifyproductions.com">contact@craftifyproductions.com</a></li>
-            <li>Email – <a href="mailto:techthunderz443@gmail.com">techthunderz443@gmail.com</a></li>
+            <li>
+              Email –{" "}
+              <a href="mailto:contact@craftifyproductions.com">
+                contact@craftifyproductions.com
+              </a>
+            </li>
+            <li>
+              Email –{" "}
+              <a href="mailto:techthunderz443@gmail.com">
+                techthunderz443@gmail.com
+              </a>
+            </li>
             <li>💬 Discord – thunderzlucky</li>
           </ul>
-          <p>Once the mod is complete, you’ll receive it within <strong>24-48 hours</strong> after payment.</p>
+          <p>
+            Once the mod is complete, you’ll receive it within{" "}
+            <strong>24-48 hours</strong> after payment.
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleModalClose}>

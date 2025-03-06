@@ -31,7 +31,7 @@ const TopBar = () => {
 const AnnouncementBar = () => (
   <div className="announcement-bar">
     <div className="announcement-content">
-      🎉 <span className="animated-text"> All Mods Available @ Discounted Prices!</span> 
+      🎉 <span className="animated-text">  Black Friday Sale! Get Flat 40% off on all the Mods!</span> 
       
 
     </div>
