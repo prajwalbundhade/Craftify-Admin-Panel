@@ -15,7 +15,7 @@ const TermsAndConditions = () => {
                 <strong>Ownership and Rights:</strong> The mods, plugins, and datapacks offered on this website are not the original creations of Craftify Productions. We have taken inspiration from various creators including Craftee, Bionic, and XNestorio. Craftify Productions collaborates with developers to create and sell these mods, and we hold all rights to distribute and sell them. Redistribution of mods purchased from Craftify Productions is strictly prohibited. Youtubers or content creators who purchase our mods are permitted to create videos featuring the purchased product. However, sharing or distributing the mods themselves without explicit permission is not allowed.
               </li>
               <li>
-                <strong>Developer Compensation:</strong> Craftify Productions compensates developers for each sale of their mods. By purchasing our products, users acknowledge and support the developers who contribute to the creation of these mods.
+                <strong>Mod Authenticity:</strong>  All mods available on Craftify Productions are developed by our dedicated team, ensuring originality, quality, and seamless integration for the best user experience.
               </li>
               <li>
                 <strong>Video Recording and Redistribution:</strong> You are permitted to record videos showcasing our mods, plugins, and datapacks on platforms such as YouTube. However, redistribution of our mods or plugins without explicit permission is strictly prohibited. Craftify Productions reserves the right to take legal action against any unauthorized redistribution, including issuing copyright strikes.
