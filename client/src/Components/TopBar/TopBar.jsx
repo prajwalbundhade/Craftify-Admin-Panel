@@ -13,10 +13,10 @@ import RedButtonModal from '../PopupModal/RedButtonModal';
 
 
 const TopBar = () => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
 
   const copyDiscordID = () => {
     const discordID = 'thunderzlucky';
@@ -31,8 +31,7 @@ const TopBar = () => {
 const AnnouncementBar = () => (
   <div className="announcement-bar">
     <div className="announcement-content">
-      🎉 <span className="animated-text"> All Mods Available @ Discounted Prices!
-</span> 
+      🎉 <span className="animated-text"> All Mods Available @ Discounted Prices!</span> 
       
 
     </div>
@@ -61,7 +60,7 @@ const AnnouncementBar = () => (
           {/* <li className="nav-item p-3">
             <Link className="nav-link" to="/services">Services</Link>
           </li> */}
-{/*           <li className="nav-item p-3">
+          {/* <li className="nav-item p-3">
             <Link className="nav-link" to="/packages">Packages</Link>
           </li> */}
           <li className="nav-item p-3">
@@ -97,13 +96,13 @@ const AnnouncementBar = () => (
             <img src={ytjobs} alt="ytjobs" />
           </a>
         </div>
-        <div className="icon mx-2">
+        {/* <div className="icon mx-2">
         <a href="#" className="nav-link red-button" onClick={handleShow}>
             <img src={redbtn} alt="Red Button" />
           </a>
-        </div>
+        </div> */}
       </div>
-      <RedButtonModal show={show} handleClose={handleClose} />
+      {/* <RedButtonModal show={show} handleClose={handleClose} /> */}
     </div>
     </>
   );
