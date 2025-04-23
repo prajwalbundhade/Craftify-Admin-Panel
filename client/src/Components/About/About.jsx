@@ -35,11 +35,7 @@ const About = () => {
                   creators and YouTubers. We offer top-quality mods at
                   unbeatable prices, alongside custom services like script
                   writing, designed to elevate your gaming experience.
-                  <br /> <br />
-                  Led by ThunderzLucky, Craftify Productions takes inspiration
-                  from renowned creators like xNestorio, Craftee, and Bionic,
-                  crafting innovative mods and plugins that push the boundaries
-                  of creativity and gameplay.
+                  
                   <br /> <br /> Join us on our journey as we continue to expand
                   and innovate, bringing you the best in Minecraft gaming. Got
                   questions or need assistance? Reach out to us anytime – we\'re

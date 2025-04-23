@@ -49,7 +49,7 @@ const DarkCard = ({ data }) => {
 
   return (
     <>
-      <Card className="bg-dark text-white mb-3 cardStyle">
+      <Card className=" text-white mb-3 cardStyle">
         <a href={ytLink} target="_blank" rel="noopener noreferrer">
           <Card.Img
             className="CardImg"

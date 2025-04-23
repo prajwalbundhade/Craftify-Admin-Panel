@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import redbtn from '../../images/red-button.png';
+// import redbtn from '../../images/red-button.png';
 import discord from '../../images/discord.png';
 import twitter from '../../images/twitter.png';
 import gmail from '../../images/gmail.png';
@@ -9,14 +8,14 @@ import GTAV_logo from '../../images/GTAV_logo.webp';
 // import PopupComponent from "../PopupComponent/PopupComponent";
 import './TopBar.css';
 import logo from '../../../public/logo.png';
-import RedButtonModal from '../PopupModal/RedButtonModal';
+// import RedButtonModal from '../PopupModal/RedButtonModal';
 
 
 const TopBar = () => {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  // const handleClose = () => setShow(false);
 
   const copyDiscordID = () => {
     const discordID = 'thunderzlucky';
@@ -28,19 +27,19 @@ const TopBar = () => {
   };
 
 //   // Announcement bar for Black Friday Sale
-const AnnouncementBar = () => (
-  <div className="announcement-bar">
-    <div className="announcement-content">
-      🎉 <span className="animated-text">  Black Friday Sale! Get Flat 40% off on all the Mods!</span> 
+// const AnnouncementBar = () => (
+//   <div className="announcement-bar">
+//     <div className="announcement-content">
+//       🎉 <span className="animated-text"> All Mods Available @ DiscountedPrices!</span> 
       
 
-    </div>
-  </div>
-);
+//     </div>
+//   </div>
+// );
 
   return (
     <>
-    <AnnouncementBar />
+    {/* <AnnouncementBar /> */}
     <div className="topBar d-flex flex-column align-items-center text-center py-4">
       <div className="title mb-3">
         <img src={logo} className="logo" alt="Craftify Productions Logo" />
@@ -60,9 +59,9 @@ const AnnouncementBar = () => (
           {/* <li className="nav-item p-3">
             <Link className="nav-link" to="/services">Services</Link>
           </li> */}
-          <li className="nav-item p-3">
+          {/* <li className="nav-item p-3">
             <Link className="nav-link" to="/packages">Packages</Link>
-          </li>
+          </li> */}
           <li className="nav-item p-3">
             <Link className="nav-link" to="/contact">Contact us</Link>
           </li>
@@ -96,13 +95,13 @@ const AnnouncementBar = () => (
             <img src={ytjobs} alt="ytjobs" />
           </a>
         </div>
-        <div className="icon mx-2">
+        {/* <div className="icon mx-2">
         <a href="#" className="nav-link red-button" onClick={handleShow}>
             <img src={redbtn} alt="Red Button" />
           </a>
-        </div>
+        </div> */}
       </div>
-      <RedButtonModal show={show} handleClose={handleClose} />
+      {/* <RedButtonModal show={show} handleClose={handleClose} /> */}
     </div>
     </>
   );

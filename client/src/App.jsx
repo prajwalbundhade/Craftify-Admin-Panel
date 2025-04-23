@@ -4,14 +4,14 @@ import PageContent from './Components/PageContent/PageContent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './Components/About/About';
 // import Services from './Components/Services/Services';
-import Packages from './Components/Packages/Packages';
+// import Packages from './Components/Packages/Packages';
 import './App.css';
 import TermsAndCondition from './Components/TermsAndCondition/TermsAndCondition';
 import { cardsData } from './Data/CardData';
 import ContactPage from './Components/Contact/Contact';
 import PopupModal from './Components/PopupModal/PopupModal';
 import Footer from './Components/Footer/Footer';
-import PopupComponent from "./Components/PopupComponent/PopupComponent";
+// import PopupComponent from "./Components/PopupComponent/PopupComponent";
 
 
 
@@ -33,13 +33,13 @@ function App() {
     <Router>
       <div className='app'>
         <TopBar />
-        <PopupComponent />
+        {/* <PopupComponent /> */}
         <Routes>
           <Route path="/" element={<PageContent cardsData={cardsData} />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<TermsAndCondition />} />
           {/* <Route path="/services" element={<Services />} /> */}
-          <Route path="/packages" element={<Packages />} />
+          {/* <Route path="/packages" element={<Packages />} /> */}
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <PopupModal show={showModal} handleClose={handleClose} />
