@@ -33,7 +33,7 @@ function App() {
     <Router>
       <div className='app'>
         <TopBar />
-        {/* <PopupComponent /> */}
+{/*         {/* <PopupComponent /> */} */}
         <Routes>
           <Route path="/" element={<PageContent cardsData={cardsData} />} />
           <Route path="/about" element={<About />} />
