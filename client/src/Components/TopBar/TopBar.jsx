@@ -27,19 +27,19 @@ const TopBar = () => {
   };
 
 //   // Announcement bar for Black Friday Sale
-// const AnnouncementBar = () => (
-//   <div className="announcement-bar">
-//     <div className="announcement-content">
-//       🎉 <span className="animated-text"> All Mods Available @ DiscountedPrices!</span> 
+const AnnouncementBar = () => (
+  <div className="announcement-bar">
+    <div className="announcement-content">
+      🎉 <span className="animated-text"> All Mods Available @ DiscountedPrices!</span> 
       
 
-//     </div>
-//   </div>
-// );
+    </div>
+  </div>
+);
 
   return (
     <>
-    {/* <AnnouncementBar /> */}
+    <AnnouncementBar />
     <div className="topBar d-flex flex-column align-items-center text-center py-4">
       <div className="title mb-3">
         <img src={logo} className="logo" alt="Craftify Productions Logo" />
