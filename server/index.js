@@ -63,5 +63,9 @@ app.use('/api/order', orderRoutes);
 //   }
 // });
 
+app.get("/", (req, res) => {
+  res.send("<h1>Welcome to Craftify API</h1>");
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
