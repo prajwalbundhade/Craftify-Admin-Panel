@@ -63,7 +63,7 @@ app.use('/api/order', orderRoutes);
 //   }
 // });
 
-app.get("/", (req, res) => {
+app.get("/api/welcome", (req, res) => {
   res.send("<h1>Welcome to Craftify API</h1>");
 });
 
