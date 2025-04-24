@@ -5,6 +5,7 @@ import twitter from '../../images/twitter.png';
 import gmail from '../../images/gmail.png';
 import ytjobs from '../../images/ytjobs.png';
 import GTAV_logo from '../../images/GTAV_logo.webp';
+import acecraft_logo from '../../images/acecraft_logo.png';
 // import PopupComponent from "../PopupComponent/PopupComponent";
 import './TopBar.css';
 import logo from '../../../public/logo.png';
@@ -27,19 +28,19 @@ const TopBar = () => {
   };
 
 //   // Announcement bar for Black Friday Sale
-const AnnouncementBar = () => (
-  <div className="announcement-bar">
-    <div className="announcement-content">
-      🎉 <span className="animated-text"> All Mods Available @ DiscountedPrices!</span> 
+// const AnnouncementBar = () => (
+//   <div className="announcement-bar">
+//     <div className="announcement-content">
+//       🎉 <span className="animated-text"> All Mods Available @ DiscountedPrices!</span> 
       
 
-    </div>
-  </div>
-);
+//     </div>
+//   </div>
+// );
 
   return (
     <>
-    <AnnouncementBar />
+    {/* <AnnouncementBar /> */}
     <div className="topBar d-flex flex-column align-items-center text-center py-4">
       <div className="title mb-3">
         <img src={logo} className="logo" alt="Craftify Productions Logo" />
@@ -70,6 +71,9 @@ const AnnouncementBar = () => (
           </li>
           <li className="nav-item p-3">
             <a href="https://gtav.craftifyproductions.com/"  className="nav-link"><img className="update-button" src={GTAV_logo} alt="GTAV_logo" /></a>
+          </li>
+          <li className="nav-item p-3">
+            <a href="https://teamacecrafts.com/"  className="nav-link"><img className="update-button" src={acecraft_logo} alt="acecraft_logo" /></a>
           </li>
         
         </ul>
