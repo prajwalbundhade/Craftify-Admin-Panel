@@ -54,7 +54,23 @@
     width: 40px;
     height: 40px;
 }
-
+.acecraft-wrapper {
+  position: absolute;
+  top: 10px; /* You can adjust this */
+  right: 10px; /* You can adjust this */
+}
+@media (max-width: 768px) {
+  .acecraft-wrapper {
+    position: static; /* Normal flow for mobile */
+    margin: 0 auto; /* Optional, depends on mobile design */
+    display: flex;
+    justify-content: center;
+  }
+}
+.acecraft-button{
+    width: 150px;
+    height: 150px;
+}
 /*  */
 /* Announcement Bar */
 .announcement-bar {

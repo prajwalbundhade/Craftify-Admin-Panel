@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AdminName } from "../Api/Api";
 function Nav(){
 return(
     <nav className="border bg-white p-4 flex justify-between items-center">
-        <Link to="/Admin/">
+        <Link to="/Admin/Posts">
             <div className="">Craftify Productions Admin</div>
         </Link>
         <div className="flex items-center space-x-4">

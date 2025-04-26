@@ -72,8 +72,8 @@ const TopBar = () => {
           <li className="nav-item p-3">
             <a href="https://gtav.craftifyproductions.com/"  className="nav-link"><img className="update-button" src={GTAV_logo} alt="GTAV_logo" /></a>
           </li>
-          <li className="nav-item p-3">
-            <a href="https://teamacecrafts.com/"  className="nav-link"><img className="update-button" src={acecraft_logo} alt="acecraft_logo" /></a>
+          <li className="nav-item acecraft-wrapper p-3">
+            <a href="https://teamacecrafts.com/"  className="nav-link"><img className="acecraft-button" src={acecraft_logo} alt="acecraft_logo" /></a>
           </li>
         
         </ul>

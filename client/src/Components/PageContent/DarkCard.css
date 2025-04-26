@@ -108,6 +108,9 @@
   .image-carousel-container .carousel-control-next {
     display: flex !important;
   }
+  .video-label{
+    opacity: 1 !important;
+  }
 }
 
 /* Show the prev/next controls only on hover (desktop >= 992px) */
