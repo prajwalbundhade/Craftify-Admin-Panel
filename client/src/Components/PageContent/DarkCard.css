@@ -5,8 +5,6 @@
     padding: 4px;
 }
 .cardStyle{
-    /* width: 350px;  */
-    /* height: 100%; */
     border: 1px solid #4a4a4a !important;
     margin-top: 25px;
     background: #2e2e2e !important;
@@ -18,7 +16,6 @@
     transform: scale(1.03);
   }
 }
-
 .card-title {
     font-size: 16px !important; /* Example font size */
     /* Add more styles as needed */
@@ -28,20 +25,11 @@
 }
 .tag {
 	display: inline-block;
-  
-  
-  	margin-right: 7px;
-	
+  margin-right: 7px;
 	background-color: rgba(46, 195, 183, 0);
-	
-	
 	border-radius: 10px;
-
-	/* This makes room for the triangle */
 	margin-left: 0px;
-	
 	position: relative;
-	
 	color: white;
 	font-weight: 600;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -50,8 +38,6 @@
   border: 1px solid #03fd4e;
 	padding: 1px 8px 1px 8px;
 }
-
-
   .badge-container {
     position: absolute;
     top: 15px; /* Adjust as needed */
