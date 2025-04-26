@@ -177,7 +177,7 @@ const EditPost = () => {
             className="border rounded-lg p-2"
           >
             <option value="">Select a category</option>
-            {["Cars", "Props"].map((category, index) => (
+            {["Trending Packages", "Minecraft But Mods & Plugins", "Discounted Mods", "Premium Mods & Plugins"].map((category, index) => (
               <option key={index} value={category}>{category}</option>
             ))}
           </select>
@@ -194,7 +194,7 @@ const EditPost = () => {
             className="border rounded-lg p-2"
           >
             <option value="">Select a state</option>
-            {["Cars", "Map", "Mod"].map((state, index) => (
+            {["Mod", "Plugin", "Datapack", "Map"].map((state, index) => (
               <option key={index} value={state}>{state}</option>
             ))}
           </select>

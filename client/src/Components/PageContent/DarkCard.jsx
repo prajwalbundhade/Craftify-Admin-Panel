@@ -14,11 +14,9 @@ const DarkCard = ({ data }) => {
     setShowBookModal(false);
     setShowNewBuyNowModal(false);
   };
-
   const handleBookNow = () => {
     setShowBookModal(true);
   };
-
   const handleNewBuyNow = () => {
     setShowNewBuyNowModal(true);
   };
@@ -31,8 +29,8 @@ const DarkCard = ({ data }) => {
         return <Badge bg="warning">Plugin</Badge>;
       case "Datapack":
         return <Badge bg="info">Datapack</Badge>;
-      case "Package":
-        return <Badge bg="success">Package</Badge>;
+      case "Map":
+        return <Badge bg="success">Map</Badge>;
       default:
         return null;
     }
