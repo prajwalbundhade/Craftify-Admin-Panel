@@ -95,13 +95,9 @@ function AddPost() {
           title: 'Post Created',
           html: `
             Title: ${formData.title}<br>
-            Picture URL: ${formData.imagePath}<br>
-            Description: ${formData.description}<br>
-            Category: ${formData.category}<br>
-            State: ${formData.state}
           `,
         });
-        handleClear();
+        window.location.href = "/Admin/Posts";
       })
       .catch((error) => {
         console.error('Error creating post:', error);

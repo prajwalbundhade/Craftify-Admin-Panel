@@ -56,7 +56,7 @@
 }
 .acecraft-wrapper {
   position: absolute;
-  top: 10px; /* You can adjust this */
+  top: -1.3rem; /* You can adjust this */
   right: 10px; /* You can adjust this */
 }
 @media (max-width: 768px) {
