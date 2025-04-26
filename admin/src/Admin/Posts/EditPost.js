@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import AdminLayout from '../../layouts/AdminLayout';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const EditPost = () => {
+const NewEditPost = () => {
   const { id } = useParams(); // Get the post ID from the URL
   const navigate = useNavigate();
   
@@ -373,5 +374,8 @@ const EditPost = () => {
   );
 };
 
+function EditPost() {
+  return <AdminLayout Content={<NewEditPost />} />;
+}
 
 export default EditPost;
