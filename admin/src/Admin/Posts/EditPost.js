@@ -178,7 +178,7 @@ const NewEditPost = () => {
             className="border rounded-lg p-2"
           >
             <option value="">Select a category</option>
-            {["Trending Packages", "Minecraft But Mods & Plugins", "Discounted Mods", "Premium Mods & Plugins"].map((category, index) => (
+            {["Trending Mods", "Minecraft But Mods & Plugins","High Quality Maps", "Best Value Mods", "Premium Plugins"].map((category, index) => (
               <option key={index} value={category}>{category}</option>
             ))}
           </select>
