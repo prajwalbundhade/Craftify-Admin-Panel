@@ -58,6 +58,10 @@ const PostSchema = new mongoose.Schema(
     order: {
       type: Number,  // New field for shuffle order
       default: 0,    // Default order value, will be updated during shuffle
+    },
+    options: {
+      type: [String],
+      default: []
     }
   },
   {

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import AdminLayout from '../../layouts/AdminLayout';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { X } from 'lucide-react';
 
 const NewEditPost = () => {
   const { id } = useParams(); // Get the post ID from the URL
@@ -18,7 +19,8 @@ const NewEditPost = () => {
     ytLink: '',
     price: '',
     bookNow: '',
-    newbuynow: ''
+    newbuynow: '',
+    options: []
   });
   const [newMedia, setNewMedia] = useState({
     imageUrl: '',
@@ -113,6 +115,23 @@ const NewEditPost = () => {
     setFormData({ ...formData, mediaContent: updatedMedia });
   };
 
+  const handleOptionSelect = (e) => {
+    const selectedOption = e.target.value;
+    if (selectedOption && !formData.options.includes(selectedOption)) {
+      setFormData({
+        ...formData,
+        options: [...formData.options, selectedOption]
+      });
+    }
+  };
+
+  const removeOption = (optionToRemove) => {
+    setFormData({
+      ...formData,
+      options: formData.options.filter(option => option !== optionToRemove)
+    });
+  };
+
   // Handle post update
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -137,7 +156,8 @@ const NewEditPost = () => {
       buyNow: '',
       price: '',
       bookNow: '',
-      newbuynow: ''
+      newbuynow: '',
+      options: []
     });
     setNewMedia({
       imageUrl: '',
@@ -178,7 +198,7 @@ const NewEditPost = () => {
             className="border rounded-lg p-2"
           >
             <option value="">Select a category</option>
-            {["Trending Mods", "Minecraft But Mods & Plugins","High Quality Maps", "Best Value Mods", "Premium Plugins"].map((category, index) => (
+            {["Trending Mods", "Minecraft But Mods & Plugins","High Quality Maps", "Best Value Mods", "Premium Plugins"].map((category, index) => (
               <option key={index} value={category}>{category}</option>
             ))}
           </select>
@@ -351,6 +371,40 @@ const NewEditPost = () => {
             onChange={handleChange}
             className="border rounded-lg p-2"
           />
+        </div>
+
+        {/* Options field */}
+        <div className="flex flex-col">
+          <label className="text-lg">Options</label>
+          <select
+            onChange={handleOptionSelect}
+            className="border rounded-lg p-2"
+            value=""
+          >
+            <option value="">Select an option</option>
+            {["Oneblocks", "Tycoons", "Troll videos", "Evolution", "Horror Mods", "Base Mods", "Custom Abilities", "Hearts Mod", "Trending Maps", "Crazy Mods"].map((option, index) => (
+              <option key={index} value={option}>{option}</option>
+            ))}
+          </select>
+          
+          {/* Display selected options */}
+          <div className="mt-2 flex flex-wrap gap-2">
+            {formData.options.map((option, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-1 bg-blue-100 text-blue-800 px-3 py-1 rounded-full"
+              >
+                <span>{option}</span>
+                <button
+                  type="button"
+                  onClick={() => removeOption(option)}
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Submit and Clear buttons */}
