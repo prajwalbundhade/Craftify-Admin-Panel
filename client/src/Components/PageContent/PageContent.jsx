@@ -8,11 +8,19 @@ import { X } from 'lucide-react';
 
 const PageContent = () => {
   const [cardsData, setCardsData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [selectedMods, setSelectedMods] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
+
+  const categories = [
+    "Minecraft But Mods & Plugins",
+    "Trending Mods",
+    "Best Value Mods",
+    "Premium Plugins",
+    "High Quality Maps"
+  ];
 
   const options = [
     "Oneblocks",
@@ -43,8 +51,6 @@ const PageContent = () => {
 
     fetchCardsData();
   }, []);
-
-  const categories = [...new Set(cardsData.map((card) => card.category))];
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -80,7 +86,7 @@ const PageContent = () => {
     const cardOptions = card.options || [];
 
     // Category and search term filtering
-    const matchesCategory = selectedCategory === "All" || card.category === selectedCategory;
+    const matchesCategory = !selectedCategory || card.category === selectedCategory;
     const matchesSearch = cardTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          cardDescription.toLowerCase().includes(searchTerm.toLowerCase());
 
