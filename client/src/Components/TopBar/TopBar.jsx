@@ -42,10 +42,11 @@ const TopBar = () => {
     <>
     {/* <AnnouncementBar /> */}
     <div className="topBar d-flex flex-column align-items-center text-center py-4">
-      <div className="title mb-3">
+     <Link className="nav-link" to="/"> <div className="title mb-3">
+      
         <img src={logo} className="logo" alt="Craftify Productions Logo" />
         Craftify Productions
-      </div>
+      </div></Link>
       <div className="justify-content-center" id="navbarNav">
         <ul className="d-flex navbarCustom" style={{ listStyle: "none", color: "#787878" }}>
           <li className="nav-item p-3">
