@@ -1,0 +1,574 @@
+.header {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Brand Section */
+.brand-section {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.brand-link:hover {
+  transform: translateY(-1px);
+}
+
+.logo {
+  width: 50px !important;
+  height: 60px !important;
+  border-radius: 8px;
+  margin-right: 0.75rem;
+  object-fit: cover;
+}
+
+.brand-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.5px;
+}
+
+/* Navigation Menu */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-item {
+  position: relative;
+  color: #3da8f0;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: #3da8f0;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #3da8f0;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 120px;
+}
+
+.icon {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.icon:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.icon img {
+  width: 24px !important;
+  height: 24px !important;
+  /* filter: brightness(0) invert(1); */
+  /* opacity: 0.9; */
+}
+
+/* Game Links */
+.game-links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  min-width: 100px;
+}
+
+.game-link {
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.game-link:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.game-link img {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  object-fit: cover;
+}
+
+/* Remove old acecraft styles */
+.acecraft-wrapper {
+  display: none;
+}
+
+/* New acecraft container styles */
+.acecraft-container {
+  position: absolute;
+  /* top: 60px; Adjust this value based on your header height */
+  right: 20px;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.acecraft-button {
+  width: 140px !important;
+  height: 140px !important;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  object-fit: contain;
+}
+
+.acecraft-button:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.2));
+}
+
+/* Responsive styles for acecraft button */
+@media (max-width: 768px) {
+  .acecraft-container {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px 0;
+  }
+
+  .acecraft-button {
+    width: 140px !important;
+    height: 140px !important;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header-wrapper {
+    justify-content: space-between;
+    padding: 0 2rem;
+  }
+
+  .nav-menu {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-wrapper {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .nav-menu {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+
+  .header-wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .brand-section {
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .social-icons {
+    margin: 0.5rem 0;
+  }
+
+  .game-links {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Dark theme announcement bar */
+.announcement-bar {
+  background: rgba(44, 142, 223, 0.1);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(44, 142, 223, 0.2);
+}
+
+.announcement-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.animated-text {
+  color: #3da8f0;
+  font-weight: 600;
+}
+
+.red-button img{
+    width: 56px;
+    height: 40px;
+}
+.update-button{
+    width: 40px;
+    height: 40px;
+}
+/*  */
+/* Announcement Bar */
+.announcement-bar {
+    position: sticky;
+    top: 0;
+    background-color: #2c8edf; /* Blue background */
+    color: #000; /* Black text */
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    z-index: 1000; /* Ensure it stays above other elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideIn 1s ease-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animated Text */
+  .animated-text {
+    animation: textAttention 1.5s infinite;
+  }
+  
+  /* Keyframes for text attention animation */
+  @keyframes textAttention {
+    0%, 100% {
+      color: #000; /* Black */
+      transform: scale(1);
+    }
+    50% {
+      color: #ffffff; /* Red to grab attention */
+      transform: scale(1.02);
+    }
+  }
+  
+  /* Slide-in effect for the announcement bar */
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Announcement Button */
+  .announcement-button {
+    margin-left: 15px;
+    /* background: linear-gradient(45deg, #ff7e5f, #feb47b); */
+    border: none;
+    color: #fff;
+    /* padding: 8px 15px; */
+    /* border-radius: 20px; */
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .announcement-button:hover {
+    background: transparent;
+    color: #ffffff;
+    /* border: 2px solid #007bff; */
+    box-shadow: none;
+  }
+  
+/* Hamburger Menu Button */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line.open:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-line.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1001;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: none;
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-content {
+  padding: 20px 20px 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #151515;
+}
+
+/* Mobile Navigation */
+.mobile-nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mobile-nav-item {
+  text-align: center;
+}
+
+.mobile-nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  color: #3da8f0;
+}
+
+/* Mobile Social Icons */
+.mobile-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.mobile-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-icon:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mobile-icon img {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/* Mobile Game Links */
+.mobile-game-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.mobile-game-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-game-link:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.mobile-game-link img {
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 6px;
+}
+
+/* Responsive Design Updates */
+@media (max-width: 992px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .mobile-menu-overlay {
+    display: block;
+  }
+
+  .main-nav,
+  .social-icons,
+  .game-links {
+    display: none;
+  }
+
+  .header-wrapper {
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+
+  .brand-section {
+    min-width: auto;
+  }
+
+  .brand-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+
+  .header-wrapper {
+    padding: 0 1rem;
+  }
+
+  .brand-title {
+    font-size: 1.3rem;
+  }
+
+  .logo {
+    width: 40px !important;
+    height: 48px !important;
+  }
+}
+  

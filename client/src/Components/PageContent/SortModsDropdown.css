@@ -1,0 +1,94 @@
+.sort-mods-container {
+  margin: 20px 0;
+  position: relative;
+  max-width: 100%;
+}
+
+/* Wrapper to keep button and pills separate, so button doesn’t shift */
+.sort-mods-container > .dropdown {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+.sort-mods-btn {
+  border-radius: 50px !important;
+  border: 2px solid #007bff !important;
+  background-color: white !important;
+  color: #007bff !important;
+  padding: 8px 18px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  font-size: 14px !important;
+}
+
+.sort-mods-btn:hover {
+  background-color: #007bff !important;
+  color: white !important;
+  border-color: #0056b3 !important;
+}
+
+/* Dropdown menu styled for dark mode */
+.sort-mods-menu {
+  padding: 12px;
+  width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 10px;
+  background-color: #2a2a2a !important; /* Dark grey */
+  color: white !important; /* White text */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.sort-mods-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sort-mods-option:hover {
+  background-color: #3a3a3a;
+}
+
+.sort-mods-option input[type="checkbox"] {
+  pointer-events: none;
+}
+
+.selected-mods {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mod-pill {
+  background-color: #444;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.mod-pill:hover {
+  background-color: #555;
+}
+
+.mod-remove {
+  margin-left: 8px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mod-remove:hover {
+  color: red;
+}
