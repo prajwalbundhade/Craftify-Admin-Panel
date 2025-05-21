@@ -14,7 +14,7 @@ function SideBar() {
   return (
     <nav className="border-r border-gray-700 bg-gray-900 h-screen p-4 w-64 pt-10">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
+        <h1 className="text-xl font-bold text-white">Craftify Admin Panel</h1>
       </div>
       {links.map((link) => (
         <Link key={link.to} to={link.to} aria-label={link.label}>

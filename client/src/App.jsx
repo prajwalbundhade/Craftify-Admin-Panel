@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import TopBar from './Components/TopBar/TopBar';
 import PageContent from './Components/PageContent/PageContent';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -11,7 +11,7 @@ import { cardsData } from './Data/CardData';
 import ContactPage from './Components/Contact/Contact';
 import PopupModal from './Components/PopupModal/PopupModal';
 import Footer from './Components/Footer/Footer';
-// import PopupComponent from "./Components/PopupComponent/PopupComponent";
+import PopupComponent from "./Components/PopupComponent/PopupComponent";
 
 
 
@@ -33,7 +33,7 @@ function App() {
     <Router>
       <div className='app'>
         <TopBar />
-       {/* <PopupComponent /> */}
+       <PopupComponent />
         <Routes>
           <Route path="/" element={<PageContent cardsData={cardsData} />} />
           <Route path="/about" element={<About />} />

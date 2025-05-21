@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./PopupComponent.css";
 import sale_poster from '../../images/New_sale_poster.jpg';
 const PopupComponent = () => {
