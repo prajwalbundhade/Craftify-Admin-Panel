@@ -5,8 +5,8 @@ import discord from '../../images/discord.png';
 import twitter from '../../images/twitter.png';
 import gmail from '../../images/gmail.png';
 import ytjobs from '../../images/ytjobs.png';
-// import GTAV_logo from '../../images/GTAV_logo.webp';
-import acecraft_logo from '../../images/acecraft_logo.png';
+import GTAV_logo from '../../images/GTAV_logo.webp';
+// import acecraft_logo from '../../images/acecraft_logo.png';
 // import PopupComponent from "../PopupComponent/PopupComponent";
 import './TopBar.css';
 import logo from '../../../public/logo.png';
@@ -36,11 +36,11 @@ const TopBar = () => {
 
   return (
     <>
-      <div className="announcement-bar">
+      {/* <div className="announcement-bar">
         <div className="announcement-content">
-          🎉 <span className="animated-text">All Mods Available @ 30% Discounted Prices!</span>
+          🎉 <span className="animated-text">All Mods Available @ Discounted Prices!</span>
         </div>
-      </div>
+      </div> */}
       <header className="header">
         <div className="container">
           <div className="header-wrapper">
@@ -109,9 +109,9 @@ const TopBar = () => {
                   <a href="https://amongus.craftifyproductions.com/" className="mobile-game-link">
                     <img src="among_us_logo.png" alt="Among Us" />
                   </a>
-                  {/* <a href="https://gtav.craftifyproductions.com/" className="mobile-game-link">
+                  <a href="https://zonzomods.com/" className="mobile-game-link">
                     <img src={GTAV_logo} alt="GTA V" />
-                  </a> */}
+                  </a>
                 </div>
               </div>
             </div>
@@ -161,19 +161,19 @@ const TopBar = () => {
               <a href="https://amongus.craftifyproductions.com/" className="game-link">
                 <img src="among_us_logo.png" alt="Among Us" />
               </a>
-              {/* <a href="https://gtav.craftifyproductions.com/" className="game-link">
+              <a href="https://zonzomods.com/" className="game-link">
                 <img src={GTAV_logo} alt="GTA V" />
-              </a> */}
+              </a>
             </div>
           </div>
         </div>
       </header>
       {/* Acecraft Button - Now positioned below header */}
-      <div className="acecraft-container">
+      {/* <div className="acecraft-container">
         <a href="https://teamacecrafts.com/" className="acecraft-link">
           <img className="acecraft-button" src={acecraft_logo} alt="Acecraft" />
         </a>
-      </div>
+      </div> */}
     </>
   );
 }

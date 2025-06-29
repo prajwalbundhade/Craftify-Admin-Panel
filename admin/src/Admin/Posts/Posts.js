@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import DraggablePost from './DraggablePost'; // Import the new memoized component
 
-function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleEdit, onDragEnd }) {
+function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleEdit, handleToggleActive, onDragEnd }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const postsToDisplay = postsData.slice(startIndex, endIndex);
@@ -24,11 +24,12 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleE
               <table className="min-w-full bg-white" ref={provided.innerRef} {...provided.droppableProps}>
                 <thead className="bg-gray-800 text-white">
                   <tr>
-                    <th className="w-1/5 py-2">Order</th>
-                    <th className="w-1/5 py-2">Picture</th>
-                    <th className="w-1/5 py-2">Title</th>
-                    <th className="w-1/5 py-2">Category</th>
-                    <th className="w-1/5 py-2">Actions</th>
+                    <th className="w-1/6 py-2">Order</th>
+                    <th className="w-1/6 py-2">Picture</th>
+                    <th className="w-1/6 py-2">Title</th>
+                    <th className="w-1/6 py-2">Category</th>
+                    <th className="w-1/6 py-2">Status</th>
+                    <th className="w-1/6 py-2">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="bg-gray-800">
@@ -39,6 +40,7 @@ function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleE
                       index={index}           // Pass index as a prop
                       handleDelete={handleDelete}
                       handleEdit={handleEdit}
+                      handleToggleActive={handleToggleActive}
                     />
                   ))}
                 </tbody>
@@ -65,7 +67,7 @@ function Posts() {
   
   const fetchPosts = async () => {
     try {
-      const response = await axios.get("https://craftifyproductions.com/api/posts/new-all-post"); // Updated URL
+      const response = await axios.get("https://craftifyproductions.com/api/posts/admin/all"); // Updated URL to fetch all posts for admin
       setPostsData(response.data);
       setLoading(false);
     } catch (error) {
@@ -84,6 +86,18 @@ function Posts() {
     }
   };
   
+  const handleToggleActive = async (postId, currentStatus) => {
+    try {
+      await axios.put(`https://craftifyproductions.com/api/posts/${postId}`, {
+        isActive: !currentStatus
+      });
+      Swal.fire('Updated!', 'Post status has been updated.', 'success');
+      fetchPosts();  // Refresh the list of posts after successful update
+    } catch (error) {
+      Swal.fire('Error!', 'There was a problem updating the post status.', 'error');
+      console.error('Error updating post status:', error);
+    }
+  };
 
   const handleEdit = (post) => {
     console.log("Editing Post:", post);
@@ -168,6 +182,7 @@ function Posts() {
             itemsPerPage={itemsPerPage}
             handleDelete={handleDelete}
             handleEdit={handleEdit}
+            handleToggleActive={handleToggleActive}
             onDragEnd={onDragEnd}
           />
           <div className="flex justify-center mt-4">

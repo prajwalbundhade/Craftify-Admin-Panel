@@ -7,11 +7,10 @@ import About from './Components/About/About';
 // import Packages from './Components/Packages/Packages';
 import './App.css';
 import TermsAndCondition from './Components/TermsAndCondition/TermsAndCondition';
-import { cardsData } from './Data/CardData';
 import ContactPage from './Components/Contact/Contact';
 import PopupModal from './Components/PopupModal/PopupModal';
 import Footer from './Components/Footer/Footer';
-import PopupComponent from "./Components/PopupComponent/PopupComponent";
+// import PopupComponent from "./Components/PopupComponent/PopupComponent";
 
 
 
@@ -33,9 +32,9 @@ function App() {
     <Router>
       <div className='app'>
         <TopBar />
-       <PopupComponent />
+       {/* <PopupComponent /> */}
         <Routes>
-          <Route path="/" element={<PageContent cardsData={cardsData} />} />
+          <Route path="/" element={<PageContent />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<TermsAndCondition />} />
           {/* <Route path="/services" element={<Services />} /> */}

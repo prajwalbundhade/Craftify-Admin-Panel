@@ -62,6 +62,10 @@ const PostSchema = new mongoose.Schema(
     options: {
       type: [String],
       default: []
+    },
+    isActive: {
+      type: Boolean,
+      default: false,  // Default to true so existing posts remain visible
     }
   },
   {

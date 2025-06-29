@@ -20,7 +20,8 @@ function EditPost() {
     price: '',
     bookNow: '',
     newbuynow: '',
-    options: []
+    options: [],
+    isActive: true
   });
 
   const [newMedia, setNewMedia] = useState({
@@ -296,6 +297,19 @@ function EditPost() {
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
               placeholder="Enter 'ok' to enable button"
             />
+          </div>
+
+          <div>
+            <label className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                name="isActive"
+                checked={formData.isActive}
+                onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
+                className="w-4 h-4 text-blue-500 focus:ring-blue-500 border-gray-600 rounded"
+              />
+              <span className="text-sm font-medium text-gray-300">Active (Visible on frontend)</span>
+            </label>
           </div>
 
           <div>

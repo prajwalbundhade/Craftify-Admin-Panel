@@ -27,7 +27,18 @@ router.post("/new", async (req, res) => {
 // New route for fetching posts ordered by 'order'
 router.get("/new-all-post", async (req, res) => {
   try {
-    const posts = await Post.find().sort({ order: 1 }); // Sort posts by 'order' field
+    const posts = await Post.find({ isActive: true }).sort({ order: 1 }); // Only fetch active posts, sorted by 'order' field
+    res.status(200).json(posts);
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({ message: "Error fetching posts", error: error.message });
+  }
+});
+
+// New route for admin to fetch all posts (including inactive ones)
+router.get("/admin/all", async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ order: 1 }); // Fetch all posts for admin
     res.status(200).json(posts);
   } catch (error) {
     console.error("Error fetching posts:", error);

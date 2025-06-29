@@ -5,6 +5,8 @@ import { Dropdown } from "react-bootstrap";
 import "./PageContent.css";
 import "./SortModsDropdown.css";
 import { X } from 'lucide-react';
+import { Link } from "react-router-dom";
+import custom_button_image from "../../images/order_button.png";
 
 const PageContent = () => {
   const [cardsData, setCardsData] = useState([]);
@@ -13,6 +15,7 @@ const PageContent = () => {
   const [loading, setLoading] = useState(true);
   const [selectedMods, setSelectedMods] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const categories = [
     "Minecraft But Mods & Plugins",
@@ -106,6 +109,33 @@ Loading.....
   return (
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center flex-column mb-3">
+        <div className="mb-3" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Link to="/contact"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+            style={{ display: 'inline-block' }}
+          >
+            <img src={custom_button_image} alt="Contact" style={{ cursor: 'pointer', maxWidth: '250px', width: '100%' }} />
+          </Link>
+          {showTooltip && (
+            <div style={{
+              position: 'absolute',
+              top: '-42px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              background: '#222',
+              color: '#fff',
+              padding: '8px 16px',
+              borderRadius: '8px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              fontSize: '1rem',
+              zIndex: 10,
+              whiteSpace: 'nowrap',
+            }}>
+              Ordering Custom Mod is now possible because our team is available!
+            </div>
+          )}
+        </div>
         <div className="col search-and-shuffle">
           <input
             type="text"
