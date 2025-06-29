@@ -4,6 +4,7 @@ import { Card, Button, Badge, Carousel,Modal,Table } from "react-bootstrap";
 import "./DarkCard.css";
 import nextIcon from "../../images/rightIcon.png";
 import prevIcon from "../../images/prevIcon.png";
+import YouTubePlayer from "./YouTubePlayer";
 
 const DarkCard = ({ data }) => {
   const { title, state, mediaContent, description, buyNow, price, bookNow, newbuynow } = data;
@@ -43,6 +44,38 @@ const DarkCard = ({ data }) => {
     return null;
   };
 
+  const renderMediaContent = (media) => {
+    if (media.ytLink) {
+      return (
+        <div className="image-container">
+          <YouTubePlayer
+            videoId={null}
+            thumbnailUrl={media.imageUrl}
+            title={`${title} - ${getVideoLabel(media) || 'Video'}`}
+            ytLink={media.ytLink}
+            onVideoEnd={() => {
+              // Optional: Handle video end
+            }}
+          />
+          {getVideoLabel(media) && (
+            <div className="video-label">{getVideoLabel(media)}</div>
+          )}
+        </div>
+      );
+    } else {
+      return (
+        <div className="image-container">
+          <Card.Img
+            className="CardImg"
+            variant="top"
+            src={media.imageUrl}
+            alt={`${title} image`}
+          />
+        </div>
+      );
+    }
+  };
+
   return (
     <>
     <Card className="text-white mb-3 cardStyle">
@@ -60,54 +93,12 @@ const DarkCard = ({ data }) => {
           >
             {mediaContent.map((media, index) => (
               <Carousel.Item key={index}>
-                <div className="image-container">
-                  {media.ytLink ? (
-                    <a href={media.ytLink} target="_blank" rel="noopener noreferrer">
-                      <Card.Img
-                        className="CardImg"
-                        variant="top"
-                        src={media.imageUrl}
-                        alt={`${title} image`}
-                      />
-                      {getVideoLabel(media) && (
-                        <div className="video-label">{getVideoLabel(media)}</div>
-                      )}
-                    </a>
-                  ) : (
-                    <Card.Img
-                      className="CardImg"
-                      variant="top"
-                      src={media.imageUrl}
-                      alt={`${title} image`}
-                    />
-                  )}
-                </div>
+                {renderMediaContent(media)}
               </Carousel.Item>
             ))}
           </Carousel>
         ) : mediaContent && mediaContent.length === 1 ? (
-          <div className="image-container">
-            {mediaContent[0].ytLink ? (
-              <a href={mediaContent[0].ytLink} target="_blank" rel="noopener noreferrer">
-                <Card.Img
-                  className="CardImg"
-                  variant="top"
-                  src={mediaContent[0].imageUrl}
-                  alt={`${title} image`}
-                />
-                {getVideoLabel(mediaContent[0]) && (
-                  <div className="video-label">{getVideoLabel(mediaContent[0])}</div>
-                )}
-              </a>
-            ) : (
-              <Card.Img
-                className="CardImg"
-                variant="top"
-                src={mediaContent[0].imageUrl}
-                alt={`${title} image`}
-              />
-            )}
-          </div>
+          renderMediaContent(mediaContent[0])
         ) : null}
       </div>
 
@@ -224,7 +215,7 @@ const DarkCard = ({ data }) => {
             <li>💬 Discord – thunderzlucky</li>
           </ul>
           <p>
-            Once the mod is complete, you’ll receive it within{" "}
+            Once the mod is complete, you&apos;ll receive it within{" "}
             <strong>24-48 hours</strong> after payment.
           </p>
         </Modal.Body>

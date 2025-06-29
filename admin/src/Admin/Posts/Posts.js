@@ -91,7 +91,7 @@ function Posts() {
       await axios.put(`https://craftifyproductions.com/api/posts/${postId}`, {
         isActive: !currentStatus
       });
-      Swal.fire('Updated!', 'Post status has been updated.', 'success');
+      // Swal.fire('Updated23!', 'Post status has been updated.', 'success');
       fetchPosts();  // Refresh the list of posts after successful update
     } catch (error) {
       Swal.fire('Error!', 'There was a problem updating the post status.', 'error');

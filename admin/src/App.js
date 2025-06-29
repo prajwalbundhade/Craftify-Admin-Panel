@@ -5,6 +5,7 @@ import Login from "./Login/Login";
 import Posts from "./Admin/Posts/Posts";
 import Add from "./Admin/Posts/NewPost";
 import EditPost from "./Admin/Posts/EditPost";
+import Settings from "./Admin/Settings/Settings";
 import { AuthToken } from "./Api/Api";
 
 // Higher-order component for private routes
@@ -43,6 +44,14 @@ function App() {
           element={
             <PrivateRoute>
               <EditPost />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/Admin/Settings"
+          element={
+            <PrivateRoute>
+              <Settings />
             </PrivateRoute>
           }
         />

@@ -44,7 +44,7 @@ const DraggablePost = React.memo(
             </td>
             <td className="py-2 flex justify-around">
               <FontAwesomeIcon
-                className={`cursor-pointer text-lg ${
+                className={`cursor-pointer text-xl ${
                   post.isActive ? 'text-green-500' : 'text-gray-400'
                 }`}
                 icon={post.isActive ? faToggleOn : faToggleOff}

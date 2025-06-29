@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileAlt, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFileAlt, faSignOutAlt, faCog } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
 
 function SideBar() {
@@ -8,6 +8,7 @@ function SideBar() {
 
   const links = [
     { to: "/Admin/Posts", icon: faFileAlt, label: "Mods" },
+    { to: "/Admin/Settings", icon: faCog, label: "Settings" },
     { to: "/Logout", icon: faSignOutAlt, label: "Logout" },
   ];
 

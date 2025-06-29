@@ -16,6 +16,10 @@ const PageContent = () => {
   const [selectedMods, setSelectedMods] = useState([]);
   const [showMenu, setShowMenu] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [settings, setSettings] = useState({
+    customButtonEnabled: true,
+    customButtonText: "Ordering Custom Mod is now possible because our team is available!"
+  });
 
   const categories = [
     "Minecraft But Mods & Plugins",
@@ -39,20 +43,24 @@ const PageContent = () => {
   ];
 
   useEffect(() => {
-    const fetchCardsData = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://craftifyproductions.com/api/posts/new-all-post"
-        );
-        setCardsData(response.data);
+        // Fetch both posts and settings
+        const [postsResponse, settingsResponse] = await Promise.all([
+          axios.get("https://craftifyproductions.com/api/posts/new-all-post"),
+          axios.get("https://craftifyproductions.com/api/settings")
+        ]);
+        
+        setCardsData(postsResponse.data);
+        setSettings(settingsResponse.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching card data:", error);
+        console.error("Error fetching data:", error);
         setLoading(false);
       }
     };
 
-    fetchCardsData();
+    fetchData();
   }, []);
 
   const handleCategoryChange = (category) => {
@@ -110,14 +118,16 @@ Loading.....
     <div className="container mt-5">
       <div className="d-flex justify-content-between align-items-center flex-column mb-3">
         <div className="mb-3" style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Link to="/contact"
-            onMouseEnter={() => setShowTooltip(true)}
-            onMouseLeave={() => setShowTooltip(false)}
-            style={{ display: 'inline-block' }}
-          >
-            <img src={custom_button_image} alt="Contact" style={{ cursor: 'pointer', maxWidth: '250px', width: '100%' }} />
-          </Link>
-          {showTooltip && (
+          {settings.customButtonEnabled && (
+            <Link to="/contact"
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              style={{ display: 'inline-block' }}
+            >
+              <img src={custom_button_image} alt="Contact" style={{ cursor: 'pointer', maxWidth: '250px', width: '100%' }} />
+            </Link>
+          )}
+          {showTooltip && settings.customButtonEnabled && (
             <div style={{
               position: 'absolute',
               top: '-42px',
@@ -132,7 +142,7 @@ Loading.....
               zIndex: 10,
               whiteSpace: 'nowrap',
             }}>
-              Ordering Custom Mod is now possible because our team is available!
+              {settings.customButtonText}
             </div>
           )}
         </div>
