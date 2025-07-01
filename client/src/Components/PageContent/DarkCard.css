@@ -164,3 +164,26 @@
   }
 }
 
+.image-carousel-container .carousel-control-next,
+.image-carousel-container .carousel-control-prev {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  background: none !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  min-width: unset !important;
+  min-height: unset !important;
+  border-radius: 50% !important;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.image-carousel-container .carousel-control-next .custom-carousel-icon,
+.image-carousel-container .carousel-control-prev .custom-carousel-icon {
+  pointer-events: auto;
+}
+
