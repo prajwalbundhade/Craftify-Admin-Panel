@@ -36,11 +36,11 @@ const TopBar = () => {
 
   return (
     <>
-      {/* <div className="announcement-bar">
+      <div className="announcement-bar">
         <div className="announcement-content">
           🎉 <span className="animated-text">All Mods Available @ Discounted Prices!</span>
         </div>
-      </div> */}
+      </div>
       <header className="header">
         <div className="container">
           <div className="header-wrapper">
