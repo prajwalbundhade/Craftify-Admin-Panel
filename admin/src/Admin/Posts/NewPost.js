@@ -194,7 +194,7 @@ function AddPost() {
               className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
             >
               <option value="">Select a category</option>
-              {["Trending Mods", "Minecraft But Mods & Plugins","High Quality Maps", "Best Value Mods", "Premium Plugins"].map((category, index) => (
+              {["New Models", "Trending Mods", "Minecraft But Mods & Plugins","High Quality Maps", "Best Value Mods", "Premium Plugins"].map((category, index) => (
                 <option key={index} value={category}>{category}</option>
               ))}
             </select>
