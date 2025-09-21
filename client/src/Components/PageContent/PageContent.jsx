@@ -26,7 +26,8 @@ const PageContent = () => {
     "Trending Mods",
     "Best Value Mods",
     "Premium Plugins",
-    "High Quality Maps"
+    "High Quality Maps",
+    "New Models"
   ];
 
   const options = [
