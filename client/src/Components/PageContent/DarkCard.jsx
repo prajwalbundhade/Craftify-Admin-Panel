@@ -5,9 +5,10 @@ import "./DarkCard.css";
 import nextIcon from "../../images/rightIcon.png";
 import prevIcon from "../../images/prevIcon.png";
 import YouTubePlayer from "./YouTubePlayer";
+import newModBannerImage from "../../images/new-mod-btn.png";
 
-const DarkCard = ({ data }) => {
-  const { title, state, mediaContent, description, buyNow, price, bookNow, newbuynow } = data;
+const DarkCard = ({ data, settings }) => {
+  const { title, state, mediaContent, description, buyNow, price, bookNow, newbuynow, newModBanner } = data;
   const [showBookModal, setShowBookModal] = useState(false);
   const [showNewBuyNowModal, setShowNewBuyNowModal] = useState(false);
 
@@ -78,6 +79,16 @@ const DarkCard = ({ data }) => {
 
   return (
     <>
+    {/* NEW MOD Banner */}
+    {newModBanner && (
+      <div className="new-mod-banner-container">
+        <img 
+          src={newModBannerImage} 
+          alt="NEW MOD" 
+          className="new-mod-banner"
+        />
+      </div>
+    )}
     <Card className="text-white mb-3 cardStyle">
       <div className="image-carousel-container">
         {mediaContent && mediaContent.length > 1 ? (
@@ -245,7 +256,13 @@ DarkCard.propTypes = {
     price: PropTypes.string,
     bookNow: PropTypes.bool,
     newbuynow: PropTypes.bool,
+    newModBanner: PropTypes.bool,
   }).isRequired,
+  settings: PropTypes.shape({
+    customButtonEnabled: PropTypes.bool,
+    customButtonText: PropTypes.string,
+    newModBannerEnabled: PropTypes.bool,
+  }),
 };
 
 export default DarkCard;

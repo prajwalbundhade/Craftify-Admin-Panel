@@ -66,6 +66,10 @@ const PostSchema = new mongoose.Schema(
     isActive: {
       type: Boolean,
       default: false,  // Default to true so existing posts remain visible
+    },
+    newModBanner: {
+      type: Boolean,
+      default: false,  // Default to false so existing posts don't show NEW MOD banner
     }
   },
   {

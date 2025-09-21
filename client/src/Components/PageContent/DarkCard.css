@@ -6,7 +6,7 @@
 }
 .cardStyle{
     border: 1px solid #4a4a4a !important;
-    margin-top: 25px;
+    margin-top: 10px;
     background: #2e2e2e !important;
     transition: transform 0.3s ease-in-out !important;
     transform-origin: center center;
@@ -185,5 +185,23 @@
 .image-carousel-container .carousel-control-next .custom-carousel-icon,
 .image-carousel-container .carousel-control-prev .custom-carousel-icon {
   pointer-events: auto;
+}
+
+/* NEW MOD Banner Styles */
+.new-mod-banner-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -10px; /* Overlap with the card slightly */
+  z-index: 10;
+}
+
+.new-mod-banner {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 10;
 }
 

@@ -215,7 +215,7 @@ Loading.....
       <div className="row">
         {filteredCards.map((card, index) => (
           <div className="col-md-3" key={index}>
-            <DarkCard data={card} />
+            <DarkCard data={card} settings={settings} />
           </div>
         ))}
       </div>

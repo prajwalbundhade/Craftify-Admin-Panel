@@ -9,45 +9,49 @@ import Swal from "sweetalert2";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import DraggablePost from './DraggablePost'; // Import the new memoized component
 
-function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleEdit, handleToggleActive, onDragEnd }) {
+function PostsData({ postsData, currentPage, itemsPerPage, handleDelete, handleEdit, handleToggleActive, handleToggleNewMod, onDragEnd }) {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const postsToDisplay = postsData.slice(startIndex, endIndex);
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Posts</h1>
-      <div className="bg-white shadow-md rounded-lg overflow-hidden">
-        <DragDropContext onDragEnd={onDragEnd}>  {/* Pass onDragEnd here */}
-          <Droppable droppableId="posts" direction="vertical">
-            {(provided) => (
-              <table className="min-w-full bg-white" ref={provided.innerRef} {...provided.droppableProps}>
-                <thead className="bg-gray-800 text-white">
-                  <tr>
-                    <th className="w-1/6 py-2">Order</th>
-                    <th className="w-1/6 py-2">Picture</th>
-                    <th className="w-1/6 py-2">Title</th>
-                    <th className="w-1/6 py-2">Category</th>
-                    <th className="w-1/6 py-2">Status</th>
-                    <th className="w-1/6 py-2">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-gray-800">
-                  {postsToDisplay.map((post, index) => (
-                    <DraggablePost
-                      key={post._id}          // Ensure each post has a unique key
-                      post={post}             // Pass the post as a prop
-                      index={index}           // Pass index as a prop
-                      handleDelete={handleDelete}
-                      handleEdit={handleEdit}
-                      handleToggleActive={handleToggleActive}
-                    />
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </Droppable>
-        </DragDropContext>
+      <h1 className="text-2xl font-bold mb-6 text-gray-100">Posts Management</h1>
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div className="overflow-x-auto">
+          <DragDropContext onDragEnd={onDragEnd}>
+            <Droppable droppableId="posts" direction="vertical">
+              {(provided) => (
+                <table className="min-w-full bg-gray-800" ref={provided.innerRef} {...provided.droppableProps}>
+                  <thead className="bg-gradient-to-r from-gray-800 to-gray-700 text-white">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider w-20">Order</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider w-32">Picture</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider min-w-64">Title</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider w-40">Category</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider w-32">Status</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider w-32">NEW MOD</th>
+                      <th className="px-6 py-4 text-left text-xs font-semibold text-gray-100 uppercase tracking-wider w-40">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-gray-800 divide-y divide-gray-700">
+                    {postsToDisplay.map((post, index) => (
+                      <DraggablePost
+                        key={post._id}
+                        post={post}
+                        index={index}
+                        handleDelete={handleDelete}
+                        handleEdit={handleEdit}
+                        handleToggleActive={handleToggleActive}
+                        handleToggleNewMod={handleToggleNewMod}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              )}
+            </Droppable>
+          </DragDropContext>
+        </div>
       </div>
     </div>
   );
@@ -96,6 +100,19 @@ function Posts() {
     } catch (error) {
       Swal.fire('Error!', 'There was a problem updating the post status.', 'error');
       console.error('Error updating post status:', error);
+    }
+  };
+
+  const handleToggleNewMod = async (postId, currentStatus) => {
+    try {
+      await axios.put(`https://craftifyproductions.com/api/posts/${postId}`, {
+        newModBanner: !currentStatus
+      });
+      // Swal.fire('Updated!', 'NEW MOD banner status has been updated.', 'success');
+      fetchPosts();  // Refresh the list of posts after successful update
+    } catch (error) {
+      Swal.fire('Error!', 'There was a problem updating the NEW MOD banner status.', 'error');
+      console.error('Error updating NEW MOD banner status:', error);
     }
   };
 
@@ -183,6 +200,7 @@ function Posts() {
             handleDelete={handleDelete}
             handleEdit={handleEdit}
             handleToggleActive={handleToggleActive}
+            handleToggleNewMod={handleToggleNewMod}
             onDragEnd={onDragEnd}
           />
           <div className="flex justify-center mt-4">
