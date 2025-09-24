@@ -25,7 +25,6 @@ const PageContent = () => {
     "Minecraft But Mods & Plugins",
     "Trending Mods",
     "Best Value Mods",
-    "Premium Plugins",
     "High Quality Maps",
     "New Models"
   ];
