@@ -25,7 +25,6 @@ const PageContent = () => {
     "Minecraft But Mods & Plugins",
     "Trending Mods",
     "Best Value Mods",
-    "Premium Plugins",
     "High Quality Maps",
     "New Models"
   ];
@@ -215,7 +214,7 @@ Loading.....
       <div className="row">
         {filteredCards.map((card, index) => (
           <div className="col-md-3" key={index}>
-            <DarkCard data={card} />
+            <DarkCard data={card} settings={settings} />
           </div>
         ))}
       </div>
